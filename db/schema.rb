@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_19_153838) do
+ActiveRecord::Schema.define(version: 2020_02_20_001718) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "airlines", force: :cascade do |t|
+    t.string "name"
+    t.string "iata"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.bigint "country_id"
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
