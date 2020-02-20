@@ -15,6 +15,10 @@ class Api::V1::UsersController < ApplicationController
             render json: { error: 'failed to create user' }, status: :not_acceptable
         end
     end
+
+    def destroy
+        @user = User.find(params[:id])
+    end
    
     private
    
