@@ -14,7 +14,6 @@ def mapResponseToModels(response)
     data.each do
         n = 0
         flight_offer = data[n]
-
         flight_offer_object = FlightOffer.create(
             xid: flight_offer["id"],
             gds: flight_offer["source"],
@@ -35,12 +34,38 @@ def mapResponseToModels(response)
         )
 
         flight_offer["itineraries"].each do |itinerary|
-            Itinerary.create(
+            itinerary_object = Itinerary.create(
                 flight_offer_id: flight_offer_object.id,
                 duration: itinerary["duration"]
             )
+
+            itinerary["segments"].each do |segment|
+                Segment.create(
+                    departure_iata: segment["departure"]["iataCode"],
+                    departure_city_code: dictionaries["locations"][segment["departure"]["iataCode"]]["cityCode"],
+                    departure_country_code: dictionaries["locations"][segment["departure"]["iataCode"]]["countryCode"],
+                    departure_terminal: segment["departure"]["terminal"],
+                    departure_time: segment["departure"]["at"],
+                    arrival_iata: segment["arrival"]["iataCode"],
+                    arrival_city_code: dictionaries["locations"][segment["arrival"]["iataCode"]]["cityCode"],
+                    arrival_country_code: dictionaries["locations"][segment["arrival"]["iataCode"]]["countryCode"],
+                    arrival_terminal: segment["arrival"]["terminal"],
+                    arrival_time: segment["arrival"]["at"],
+                    carrier_code: segment["carrierCode"],
+                    carrier: dictionaries["carriers"][segment["carrierCode"]],
+                    flight_number: segment["number"],
+                    aircraft_code: segment["aircraft"]["code"],
+                    aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
+                    operating_carrier_code: segment["operating"]["carrierCode"],
+                    operating_carrier: dictionaries["carriers"][segment["operatingCarrierCode"]],
+                    duration: segment["duration"],
+                    xid: segment["id"].to_i,
+                    number_of_stops: segment["numberOfStops"],
+                    blacklisted_in_eu: segment["blacklistedInEU"],
+                    itinerary_id: itinerary_object.id
+                )
+            end
         end
-        
     end
 end
 

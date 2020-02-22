@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_204422) do
+ActiveRecord::Schema.define(version: 2020_02_22_211228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,34 @@ ActiveRecord::Schema.define(version: 2020_02_22_204422) do
     t.index ["flight_offer_id"], name: "index_itineraries_on_flight_offer_id"
   end
 
+  create_table "segments", force: :cascade do |t|
+    t.bigint "itinerary_id", null: false
+    t.string "departure_iata"
+    t.string "departure_city_code"
+    t.string "departure_country_code"
+    t.string "departure_terminal"
+    t.datetime "departure_time"
+    t.string "arrival_iata"
+    t.string "arrival_city_code"
+    t.string "arrival_country_code"
+    t.string "arrival_terminal"
+    t.datetime "arrival_time"
+    t.string "carrier_code"
+    t.string "carrier"
+    t.string "flight_number"
+    t.string "aircraft_code"
+    t.string "aircraft"
+    t.string "operating_carrier_code"
+    t.string "operating_carrier"
+    t.string "duration"
+    t.integer "xid"
+    t.integer "number_of_stops"
+    t.boolean "blacklisted_in_eu"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["itinerary_id"], name: "index_segments_on_itinerary_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -51,4 +79,5 @@ ActiveRecord::Schema.define(version: 2020_02_22_204422) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "segments", "itineraries"
 end
