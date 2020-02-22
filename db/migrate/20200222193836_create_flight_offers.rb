@@ -17,6 +17,8 @@ class CreateFlightOffers < ActiveRecord::Migration[6.0]
       t.string :fare_type
       t.boolean :included_checked_bags_only
       t.string :validating_airline_codes
+
+      t.timestamps
     end
   end
 end

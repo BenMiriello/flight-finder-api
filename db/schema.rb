@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_193836) do
+ActiveRecord::Schema.define(version: 2020_02_22_204422) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(version: 2020_02_22_193836) do
     t.string "fare_type"
     t.boolean "included_checked_bags_only"
     t.string "validating_airline_codes"
+  end
+
+  create_table "itineraries", force: :cascade do |t|
+    t.string "duration"
+    t.bigint "flight_offer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_offer_id"], name: "index_itineraries_on_flight_offer_id"
   end
 
   create_table "users", force: :cascade do |t|
