@@ -75,11 +75,11 @@ ActiveRecord::Schema.define(version: 2020_02_22_212736) do
   create_table "traveler_segments", force: :cascade do |t|
     t.bigint "traveler_id", null: false
     t.bigint "segment_id", null: false
-    t.integer "segmend_xid"
+    t.integer "segment_xid"
     t.string "cabin"
     t.string "fare_basis"
     t.string "branded_fare"
-    t.string "class"
+    t.string "rbd_class"
     t.integer "included_checked_bags_quantity"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -89,7 +89,7 @@ ActiveRecord::Schema.define(version: 2020_02_22_212736) do
 
   create_table "travelers", force: :cascade do |t|
     t.bigint "flight_offer_id", null: false
-    t.integer "traveler_xid"
+    t.integer "xid"
     t.string "fare_option"
     t.string "traveler_type"
     t.string "currency_code"

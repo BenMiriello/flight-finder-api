@@ -14,7 +14,6 @@ def mapResponseToModels(response)
     dictionaries = response["dictionaries"]
 
     puts "Creating #{response["meta"]["count"]} flight offers..."
-    # create FlightOffers
     data.each do |datum|
         segments_array = []
         flight_offer_object = FlightOffer.create(
@@ -77,7 +76,7 @@ def mapResponseToModels(response)
         datum["travelerPricings"].each do |traveler|
             traveler_object = Traveler.create(
                 flight_offer_id: flight_offer_object.id,
-                traveler_xid: traveler["travelerId"],
+                xid: traveler["travelerId"],
                 fare_option: traveler["fareOption"],
                 traveler_type: traveler["travelerType"],
                 currency_code: traveler["price"]["currency"],
@@ -86,19 +85,20 @@ def mapResponseToModels(response)
                 base: traveler["price"]["base"]
             )
 
-            # # create traveler_segments
-            # traveler["fareDetailsBySegment"].each do |fare_details|
-            #     TravelerSegment.create(
-            #         traveler_id: traveler_object.id,
-            #         segment_id: segments_array.select{ |segment| segment.xid == fare_details["segmentId"] },
-            #         segment_xid: fare_details["segmentId"],
-            #         cabin: fare_details["cabin"],
-            #         fare_basis: fare_details["fareBasis"],
-            #         branded_fare: fare_details["brandedFare"],
-            #         class: fare_details["class"], # class_RBD
-            #         included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
-            #     )
-            # end
+            # create traveler_segments
+            traveler["fareDetailsBySegment"].each do |fare_details|
+                # byebug
+                TravelerSegment.create(
+                    traveler_id: traveler_object.id,
+                    segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
+                    segment_xid: fare_details["segmentId"].to_i,
+                    cabin: fare_details["cabin"],
+                    fare_basis: fare_details["fareBasis"],
+                    branded_fare: fare_details["brandedFare"],
+                    rbd_class: fare_details["class"], # class_RBD
+                    included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
+                )
+            end
         end
     end
 end
@@ -106,3 +106,5 @@ end
 mapResponseToModels(sample_response_1)
 
 sample_response_1_file.close
+
+# TravelerSegment.create(traveler_id: traveler_object.id, segment_id: segments_array.select{ |segment| segment.xid == fare_details["segmentId"].to_i }, segment_xid: fare_details["segmentId"].to_i, cabin: fare_details["cabin"], fare_basis: fare_details["fareBasis"], branded_fare: fare_details["brandedFare"], rbd_class: fare_details["class"])
