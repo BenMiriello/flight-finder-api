@@ -63,9 +63,6 @@
 
 # File.open("analyze_return.rb", "w") { |file| file.puts "response = #{response.read_body}"}
 
-
-
-
 require 'uri'
 require 'net/http'
 require 'openssl'

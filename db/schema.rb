@@ -10,38 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_030115) do
+ActiveRecord::Schema.define(version: 2020_02_22_193836) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "airlines", force: :cascade do |t|
-    t.string "name"
-    t.string "iata"
-  end
-
-  create_table "cities", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-    t.bigint "country_id"
-    t.index ["country_id"], name: "index_cities_on_country_id"
-  end
-
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.string "image"
-  end
-
-  create_table "quotes", force: :cascade do |t|
-    t.integer "min_price"
-    t.boolean "direct"
-    t.integer "outbound_carrier_id"
-    t.integer "outbound_origin_id"
-    t.integer "outbound_destination_id"
-    t.datetime "outbound_departure_date"
-    t.datetime "quote_datetime"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+  create_table "flight_offers", force: :cascade do |t|
+    t.string "xid"
+    t.string "gds"
+    t.boolean "instant_ticketing_required"
+    t.boolean "non_homogenous"
+    t.boolean "one_way"
+    t.datetime "last_ticketing_date"
+    t.integer "number_of_bookable_seats"
+    t.string "currency_code"
+    t.string "currency"
+    t.integer "price_total"
+    t.integer "price_base"
+    t.string "price_fees"
+    t.integer "grand_total"
+    t.string "fare_type"
+    t.boolean "included_checked_bags_only"
+    t.string "validating_airline_codes"
   end
 
   create_table "users", force: :cascade do |t|
