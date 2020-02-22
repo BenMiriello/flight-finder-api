@@ -1,4 +1,4 @@
-cities_by_country = [
+[
   [
     "Afghanistan", 
     [
