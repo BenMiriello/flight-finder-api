@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_211228) do
+ActiveRecord::Schema.define(version: 2020_02_22_212736) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,11 +32,13 @@ ActiveRecord::Schema.define(version: 2020_02_22_211228) do
     t.string "fare_type"
     t.boolean "included_checked_bags_only"
     t.string "validating_airline_codes"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "itineraries", force: :cascade do |t|
     t.string "duration"
-    t.bigint "flight_offer_id"
+    t.bigint "flight_offer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["flight_offer_id"], name: "index_itineraries_on_flight_offer_id"
@@ -70,6 +72,35 @@ ActiveRecord::Schema.define(version: 2020_02_22_211228) do
     t.index ["itinerary_id"], name: "index_segments_on_itinerary_id"
   end
 
+  create_table "traveler_segments", force: :cascade do |t|
+    t.bigint "traveler_id", null: false
+    t.bigint "segment_id", null: false
+    t.integer "segmend_xid"
+    t.string "cabin"
+    t.string "fare_basis"
+    t.string "branded_fare"
+    t.string "class"
+    t.integer "included_checked_bags_quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["segment_id"], name: "index_traveler_segments_on_segment_id"
+    t.index ["traveler_id"], name: "index_traveler_segments_on_traveler_id"
+  end
+
+  create_table "travelers", force: :cascade do |t|
+    t.bigint "flight_offer_id", null: false
+    t.integer "traveler_xid"
+    t.string "fare_option"
+    t.string "traveler_type"
+    t.string "currency_code"
+    t.string "currency"
+    t.integer "total"
+    t.integer "base"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_offer_id"], name: "index_travelers_on_flight_offer_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -79,5 +110,9 @@ ActiveRecord::Schema.define(version: 2020_02_22_211228) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "itineraries", "flight_offers"
   add_foreign_key "segments", "itineraries"
+  add_foreign_key "traveler_segments", "segments"
+  add_foreign_key "traveler_segments", "travelers"
+  add_foreign_key "travelers", "flight_offers"
 end

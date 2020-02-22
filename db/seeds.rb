@@ -1,4 +1,7 @@
-puts "Destroying all flight offers"
+puts "Destroying all flight offers..."
+TravelerSegment.destroy_all
+Traveler.destroy_all
+Segment.destroy_all
 FlightOffer.destroy_all
 Itinerary.destroy_all
 
@@ -11,36 +14,38 @@ def mapResponseToModels(response)
     dictionaries = response["dictionaries"]
 
     puts "Creating #{response["meta"]["count"]} flight offers..."
-    data.each do
-        n = 0
-        flight_offer = data[n]
+    # create FlightOffers
+    data.each do |datum|
+        segments_array = []
         flight_offer_object = FlightOffer.create(
-            xid: flight_offer["id"],
-            gds: flight_offer["source"],
-            instant_ticketing_required: flight_offer["instantTicketingRequired"],
-            non_homogenous: flight_offer["nonHomogeneous"],
-            one_way: flight_offer["oneWay"],
-            last_ticketing_date: flight_offer["lastTicketingDate"],
-            number_of_bookable_seats: flight_offer["numberOfBookableSeats"],
-            currency_code: flight_offer["price"]["currency"], # currency_code
-            currency: dictionaries["currencies"][flight_offer["price"]["currency"]], # currency
-            price_total: flight_offer["price"]["total"],
-            price_base: flight_offer["price"]["base"],
-            price_fees: flight_offer["price"]["fees"].join(','), # extra info - save as string
-            grand_total: flight_offer["price"]["grandTotal"],
-            fare_type: flight_offer["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
-            included_checked_bags_only: flight_offer["pricingOptions"]["includedCheckedBagsOnly"],
-            validating_airline_codes: flight_offer["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
+            xid: datum["id"],
+            gds: datum["source"],
+            instant_ticketing_required: datum["instantTicketingRequired"],
+            non_homogenous: datum["nonHomogeneous"],
+            one_way: datum["oneWay"],
+            last_ticketing_date: datum["lastTicketingDate"],
+            number_of_bookable_seats: datum["numberOfBookableSeats"],
+            currency_code: datum["price"]["currency"], # currency_code
+            currency: dictionaries["currencies"][datum["price"]["currency"]], # currency
+            price_total: datum["price"]["total"].to_i,
+            price_base: datum["price"]["base"].to_i,
+            price_fees: datum["price"]["fees"].join(','), # extra info - save as string
+            grand_total: datum["price"]["grandTotal"].to_i,
+            fare_type: datum["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
+            included_checked_bags_only: datum["pricingOptions"]["includedCheckedBagsOnly"],
+            validating_airline_codes: datum["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
         )
 
-        flight_offer["itineraries"].each do |itinerary|
+        # create Itineraries
+        datum["itineraries"].each do |itinerary|
             itinerary_object = Itinerary.create(
                 flight_offer_id: flight_offer_object.id,
                 duration: itinerary["duration"]
             )
 
+            # create Segments
             itinerary["segments"].each do |segment|
-                Segment.create(
+                segment_object = Segment.create(
                     departure_iata: segment["departure"]["iataCode"],
                     departure_city_code: dictionaries["locations"][segment["departure"]["iataCode"]]["cityCode"],
                     departure_country_code: dictionaries["locations"][segment["departure"]["iataCode"]]["countryCode"],
@@ -64,7 +69,36 @@ def mapResponseToModels(response)
                     blacklisted_in_eu: segment["blacklistedInEU"],
                     itinerary_id: itinerary_object.id
                 )
+                segments_array << segment_object
             end
+        end
+
+        # create travelers
+        datum["travelerPricings"].each do |traveler|
+            traveler_object = Traveler.create(
+                flight_offer_id: flight_offer_object.id,
+                traveler_xid: traveler["travelerId"],
+                fare_option: traveler["fareOption"],
+                traveler_type: traveler["travelerType"],
+                currency_code: traveler["price"]["currency"],
+                currency: dictionaries["currencies"][traveler["price"]["currency"]],
+                total: traveler["price"]["total"].to_i,
+                base: traveler["price"]["base"]
+            )
+
+            # # create traveler_segments
+            # traveler["fareDetailsBySegment"].each do |fare_details|
+            #     TravelerSegment.create(
+            #         traveler_id: traveler_object.id,
+            #         segment_id: segments_array.select{ |segment| segment.xid == fare_details["segmentId"] },
+            #         segment_xid: fare_details["segmentId"],
+            #         cabin: fare_details["cabin"],
+            #         fare_basis: fare_details["fareBasis"],
+            #         branded_fare: fare_details["brandedFare"],
+            #         class: fare_details["class"], # class_RBD
+            #         included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
+            #     )
+            # end
         end
     end
 end
