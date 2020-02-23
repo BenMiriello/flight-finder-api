@@ -15,14 +15,16 @@ Rails.application.routes.draw do
             post '/login', to: 'auth#create'
             get '/profile', to: 'users#profile'
 
-            resources :flight_offers, only: [:index, :show] do
-                resources :itineraries, only: [:index, :show] do
-                    resources :segments, only: [:index, :show]
-                end
-                resources :travelers, only: [:index, :show] do
-                    resources :traveler_segments, only: [:index, :show]
-                end
-            end
+            resources :flight_offers, only: [:index, :show]
+            
+            # resources :flight_offers, only: [:index, :show] do
+            #     resources :itineraries, only: [:index, :show] do
+            #         resources :segments, only: [:index, :show]
+            #     end
+            #     resources :travelers, only: [:index, :show] do
+            #         resources :traveler_segments, only: [:index, :show]
+            #     end
+            # end
 
         end
     end
