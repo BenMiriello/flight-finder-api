@@ -87,7 +87,6 @@ def mapResponseToModels(response)
 
             # create traveler_segments
             traveler["fareDetailsBySegment"].each do |fare_details|
-                # byebug
                 TravelerSegment.create(
                     traveler_id: traveler_object.id,
                     segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,

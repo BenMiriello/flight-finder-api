@@ -51,3 +51,5 @@ gem "active_model_serializers", "~> 0.10.10"
 gem 'httparty'
 
 gem "dotenv-rails"
+
+gem 'kaminari'
