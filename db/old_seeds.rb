@@ -253,6 +253,20 @@ airline_templates = [
 # end
 
 ####################################################################################
+
+# CITY NAMES AND IMAGE DATA
+
+# Run the following commands in seeds:
+
+# require 'cities.rb'
+# city_data.each do |city|
+#     # ?? city.name.downcase.split(' ').join('_') = 
+#     loc = Location.new(name: city.name, image: city.image)
+# end
+
+# Suffix for cropping: "?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=100"
+
+####################################################################################
 # CITIES AND COUNTRIES
 ####################################################################################
 

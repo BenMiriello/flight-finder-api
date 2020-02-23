@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_22_212736) do
+ActiveRecord::Schema.define(version: 2020_02_23_214819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "flight_offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_offer_id"], name: "index_favorites_on_flight_offer_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "flight_offers", force: :cascade do |t|
     t.string "xid"
@@ -42,6 +51,15 @@ ActiveRecord::Schema.define(version: 2020_02_22_212736) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["flight_offer_id"], name: "index_itineraries_on_flight_offer_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "flight_offer_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["flight_offer_id"], name: "index_purchases_on_flight_offer_id"
+    t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
   create_table "segments", force: :cascade do |t|
@@ -110,7 +128,11 @@ ActiveRecord::Schema.define(version: 2020_02_22_212736) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "favorites", "flight_offers"
+  add_foreign_key "favorites", "users"
   add_foreign_key "itineraries", "flight_offers"
+  add_foreign_key "purchases", "flight_offers"
+  add_foreign_key "purchases", "users"
   add_foreign_key "segments", "itineraries"
   add_foreign_key "traveler_segments", "segments"
   add_foreign_key "traveler_segments", "travelers"
