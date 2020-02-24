@@ -1,4 +1,4 @@
-class ItinerariesController < ApplicationController
+class Api::V1::ItinerariesController < ApplicationController
   skip_before_action :authorized
   def index
   end

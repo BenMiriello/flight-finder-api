@@ -1,5 +1,5 @@
 class FlightOfferSerializer < ActiveModel::Serializer
-    attributes :one_way, :currency, :grand_total, :fare_type, :validating_airline_codes, :itineraries, :travelers
+    attributes :id, :one_way, :currency, :grand_total, :fare_type, :validating_airline_codes, :itineraries, :travelers
     
     has_many :itineraries
     has_many :travelers

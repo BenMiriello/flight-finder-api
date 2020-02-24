@@ -1,4 +1,4 @@
-class TravelersController < ApplicationController
+class Api::V1::TravelersController < ApplicationController
   skip_before_action :authorized
   def index
   end

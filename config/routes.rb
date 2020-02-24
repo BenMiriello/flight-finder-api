@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
-  get 'purchases/show'
-  get 'purchases/index'
+#   get 'purchases/show'
+#   get 'purchases/index'
 #   get 'traveler_segments/index'
 #   get 'traveler_segments/show'
 #   get 'travelers/index'
@@ -23,6 +23,8 @@ Rails.application.routes.draw do
             get '/profile', to: 'users#profile'
 
             resources :flight_offers, only: [:index, :show], concerns: :paginatable
+            resources :purchases, only: [:create]
+            resources :favorites, only: [:create]
             # resources :flight_offers, only: [:show]
 
             # resources :flight_offers, only: [:index, :show] do
