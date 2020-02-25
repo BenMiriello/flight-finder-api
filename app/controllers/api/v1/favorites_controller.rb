@@ -10,7 +10,13 @@ class Api::V1::FavoritesController < ApplicationController
     end
 
     def destroy
-        byebug
+        @favorite = Favorite.find_by(flight_offer_id: params[:flightOffer][:id], user_id: @user.id)
+        @favorite.destroy
+        # if Favorite.find(@favorite.id)
+        #     render json: { error: 'Favorite was not deleted.' }.as_json
+        # else 
+            render json: { message: 'Favorite was deleted.' }.as_json
+        # end
     end
     
 end

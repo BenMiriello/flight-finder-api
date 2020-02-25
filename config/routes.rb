@@ -23,8 +23,11 @@ Rails.application.routes.draw do
             get '/profile', to: 'users#profile'
 
             resources :flight_offers, only: [:index, :show], concerns: :paginatable
-            resources :purchases, only: [:create]
-            resources :favorites, only: [:create]
+
+            delete '/favorites', to: 'favorites#destroy'
+            delete '/purchases', to: 'purchases#destroy'
+            resources :purchases, only: [:create, :delete]
+            resources :favorites, only: [:create, :destroy]
             # resources :flight_offers, only: [:show]
 
             # resources :flight_offers, only: [:index, :show] do
