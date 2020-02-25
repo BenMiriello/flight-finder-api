@@ -1,15 +1,6 @@
-# puts "Destroying all flight offers..."
-# TravelerSegment.destroy_all
-# Traveler.destroy_all
-# Segment.destroy_all
-# FlightOffer.destroy_all
-# Itinerary.destroy_all
-
-require 'json'
-sample_response_1_file = File.open('db/amadeus_test/sample_response_1.rb', 'r')
-sample_response_1 = JSON.parse(sample_response_1_file.read)
-
-def mapResponseToModels(response)
+test = 'test'
+class parseResponse 
+def self.mapResponseToModels(response, user_id)
     data = response["data"]
     dictionaries = response["dictionaries"]
 
@@ -17,6 +8,7 @@ def mapResponseToModels(response)
     data.each do |datum|
         segments_array = []
         flight_offer_object = FlightOffer.create(
+            user_id: user_id,
             xid: datum["id"],
             gds: datum["source"],
             instant_ticketing_required: datum["instantTicketingRequired"],
@@ -101,9 +93,4 @@ def mapResponseToModels(response)
         end
     end
 end
-
-mapResponseToModels(sample_response_1)
-
-sample_response_1_file.close
-
-# TravelerSegment.create(traveler_/id: traveler_object.id, segment_id: segments_array.select{ |segment| segment.xid == fare_details["segmentId"].to_i }, segment_xid: fare_details["segmentId"].to_i, cabin: fare_details["cabin"], fare_basis: fare_details["fareBasis"], branded_fare: fare_details["brandedFare"], rbd_class: fare_details["class"])
+end

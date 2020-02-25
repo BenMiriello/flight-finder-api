@@ -2,11 +2,11 @@ class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
 
     def profile
+        # byebug
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 
     def create
-        # byebug
         @user = User.create(user_params)
         if @user.valid?
             @token = encode_token(user_id: @user.id)

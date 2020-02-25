@@ -1,6 +1,7 @@
 class CreateFlightOffers < ActiveRecord::Migration[6.0]
   def change
     create_table :flight_offers do |t|
+      # t.references :user, null: false, foreign_key: true
       t.string :xid
       t.string :gds
       t.boolean :instant_ticketing_required
