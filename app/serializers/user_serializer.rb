@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-    attributes :username, :avatar, :bio, :favorited_flight_offers, :purchased_flight_offers
+    attributes :id, :username, :avatar, :bio, :favorited_flight_offers, :purchased_flight_offers
 
     def favorited_flight_offers
         return self.object.favorited_flight_offers.map do |flight_offer|

@@ -1,8 +1,7 @@
 class Api::V1::UsersController < ApplicationController
     skip_before_action :authorized, only: [:create]
-
+    
     def profile
-        # byebug
         render json: { user: UserSerializer.new(current_user) }, status: :accepted
     end
 
@@ -13,6 +12,15 @@ class Api::V1::UsersController < ApplicationController
             render json: { user: UserSerializer.new(@user), jwt: @token }, status: :created
         else
             render json: { error: 'failed to create user' }, status: :not_acceptable
+        end
+    end
+
+    def update
+        if @user.id == params[:id].to_i
+            @user.update_attribute("username", params[:_json])
+            render json: { newUsername: @user.username }.to_json
+        else
+            render json: { message: "Unable to update this user" }.to_json
         end
     end
 

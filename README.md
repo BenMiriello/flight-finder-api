@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+----------------------------------------------------------------------
+
+If Rails can't connect with DB, has issues with env files, and is running spring,
+    try running: spring stop
+
