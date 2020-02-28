@@ -51,7 +51,7 @@ class ParseResponse
                     flight_number: segment["number"],
                     aircraft_code: segment["aircraft"]["code"],
                     aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
-                    # operating_carrier_code: segment["operating"]["carrierCode"],
+                    operating_carrier_code: segment["operating"]["carrierCode"],
                     operating_carrier: dictionaries["carriers"][segment["operatingCarrierCode"]],
                     duration: segment["duration"],
                     xid: segment["id"].to_i,
@@ -94,5 +94,6 @@ class ParseResponse
         end
         return flight_offer_object
     end
+
 end
 
