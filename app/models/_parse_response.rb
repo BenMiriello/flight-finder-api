@@ -1,11 +1,11 @@
 class ParseResponse 
         
-    def self.mapResponseToModels(datum, dictionaries, query_id64)
+    def self.mapResponseToModels(query, datum, dictionaries, query_id64)
         segments_array = []
         flight_offer_object = FlightOffer.create(
             # user_id: user_id,
             # temp_id: SecureRandom.base64(10),
-            query_id: query_id64,
+            query_id: query.id,
             xid: datum["id"],
             gds: datum["source"],
             instant_ticketing_required: datum["instantTicketingRequired"],

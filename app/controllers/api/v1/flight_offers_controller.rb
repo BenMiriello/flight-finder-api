@@ -24,6 +24,19 @@ class Api::V1::FlightOffersController < ApplicationController
 
     def create
 
+        @query = Query.create(
+            originLocationCode: '',
+            destinationLocationCode: '',
+            departureDate: '',
+            returnDate: '',
+            travelClass: 'Economy',
+            adults: 1,
+            children: 0,
+            infants: 0,
+            nonStop: false,
+            maxPrice: 0
+        )
+
         # Set required parameters
         url = "https://test.api.amadeus.com/v2/shopping/flight-offers"
         origin = params[:originLocationCode].upcase
@@ -69,10 +82,10 @@ class Api::V1::FlightOffersController < ApplicationController
         dictionaries = response["dictionaries"]
         query_id64 = SecureRandom.base64(10)
 
-        data.each { |datum| ParseResponse.mapResponseToModels(datum, dictionaries, query_id64) }
+        data.each { |datum| ParseResponse.mapResponseToModels(@query, datum, dictionaries, query_id64) }
 
         @flight_offers = FlightOffer.where(query_id: query_id64)
-        render json: @flight_offers, each_serializer: FlightOfferSerializer
+        render json: flight_offers: @flight_offers, each_serializer: FlightOfferSerializer
 
     end
   
