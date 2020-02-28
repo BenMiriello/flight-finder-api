@@ -1,14 +1,11 @@
-test = 'test'
-class parseResponse 
-def self.mapResponseToModels(response, user_id)
-    data = response["data"]
-    dictionaries = response["dictionaries"]
-
-    puts "Creating #{response["meta"]["count"]} flight offers..."
-    data.each do |datum|
+class ParseResponse 
+        
+    def self.mapResponseToModels(datum, dictionaries, query_id64)
         segments_array = []
         flight_offer_object = FlightOffer.create(
-            user_id: user_id,
+            # user_id: user_id,
+            # temp_id: SecureRandom.base64(10),
+            query_id: query_id64,
             xid: datum["id"],
             gds: datum["source"],
             instant_ticketing_required: datum["instantTicketingRequired"],
@@ -30,6 +27,7 @@ def self.mapResponseToModels(response, user_id)
         # create Itineraries
         datum["itineraries"].each do |itinerary|
             itinerary_object = Itinerary.create(
+                # temp_id: SecureRandom.base64(10),
                 flight_offer_id: flight_offer_object.id,
                 duration: itinerary["duration"]
             )
@@ -37,6 +35,7 @@ def self.mapResponseToModels(response, user_id)
             # create Segments
             itinerary["segments"].each do |segment|
                 segment_object = Segment.create(
+                    # temp_id: SecureRandom.base64(10),
                     departure_iata: segment["departure"]["iataCode"],
                     departure_city_code: dictionaries["locations"][segment["departure"]["iataCode"]]["cityCode"],
                     departure_country_code: dictionaries["locations"][segment["departure"]["iataCode"]]["countryCode"],
@@ -52,7 +51,7 @@ def self.mapResponseToModels(response, user_id)
                     flight_number: segment["number"],
                     aircraft_code: segment["aircraft"]["code"],
                     aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
-                    operating_carrier_code: segment["operating"]["carrierCode"],
+                    # operating_carrier_code: segment["operating"]["carrierCode"],
                     operating_carrier: dictionaries["carriers"][segment["operatingCarrierCode"]],
                     duration: segment["duration"],
                     xid: segment["id"].to_i,
@@ -67,6 +66,7 @@ def self.mapResponseToModels(response, user_id)
         # create travelers
         datum["travelerPricings"].each do |traveler|
             traveler_object = Traveler.create(
+                # temp_id: SecureRandom.base64(10),
                 flight_offer_id: flight_offer_object.id,
                 xid: traveler["travelerId"],
                 fare_option: traveler["fareOption"],
@@ -80,6 +80,7 @@ def self.mapResponseToModels(response, user_id)
             # create traveler_segments
             traveler["fareDetailsBySegment"].each do |fare_details|
                 TravelerSegment.create(
+                    # temp_id: SecureRandom.base64(10),
                     traveler_id: traveler_object.id,
                     segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
                     segment_xid: fare_details["segmentId"].to_i,
@@ -91,6 +92,7 @@ def self.mapResponseToModels(response, user_id)
                 )
             end
         end
+        return flight_offer_object
     end
 end
-end
+

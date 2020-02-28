@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_02_23_214819) do
   end
 
   create_table "flight_offers", force: :cascade do |t|
+    t.string "query_id"
     t.string "xid"
     t.string "gds"
     t.boolean "instant_ticketing_required"

@@ -1,0 +1,30 @@
+0:
+    id: 1
+    one_way: false
+    currency: "EURO"
+    grand_total: 329
+    fare_type: "PUBLISHED"
+    validating_airline_codes: "AY"
+    itineraries: Array(2)
+        0:
+            id: 1
+            duration: "PT6H50M"
+            segments: Array(1)
+                0: {id: 1, temp_id: null, itinerary_id: 1, departure_iata: "JFK", departure_city_code: "NYC", …}
+        1:
+            id: 2
+            duration: "PT11H55M"
+            segments: Array(2)
+                0: {id: 2, temp_id: null, itinerary_id: 2, departure_iata: "LHR", departure_city_code: "LON", …}
+                1: {id: 3, temp_id: null, itinerary_id: 2, departure_iata: "MAD", departure_city_code: "MAD", …}
+        travelers: Array(1)
+        0:
+            id: 1
+            traveler_type: "ADULT"
+            currency_code: "EUR"
+            currency: "EURO"
+            total: 329
+            traveler_segments: Array(3)
+                0: {id: 1, temp_id: null, traveler_id: 1, segment_id: 1, segment_xid: 8, …}
+                1: {id: 2, temp_id: null, traveler_id: 1, segment_id: 2, segment_xid: 21, …}
+                2: {id: 3, temp_id: null, traveler_id: 1, segment_id: 3, segment_xid: 22, …}

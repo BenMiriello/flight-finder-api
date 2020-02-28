@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 #   get 'itineraries/index'
 #   get 'itineraries/show'
 
-    concern :paginatable do
-        get '(page/:page)', action: :index, on: :collection, as: ''
-    end
+    # concern :paginatable do
+    #     get '(page/:page)', action: :index, on: :collection, as: ''
+    # end
 
     namespace :api do
         namespace :v1 do
@@ -21,8 +21,9 @@ Rails.application.routes.draw do
             resources :users, only: [:create, :update, :destroy]
             post '/login', to: 'auth#create'
             get '/profile', to: 'users#profile'
-
-            resources :flight_offers, only: [:index, :show], concerns: :paginatable
+            resources :flight_offers, only: [:index, :show]
+            # , concerns: :paginatable
+            post '/flight_offers', to: 'flight_offers#create'
 
             delete '/favorites', to: 'favorites#destroy'
             delete '/purchases', to: 'purchases#destroy'

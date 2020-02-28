@@ -1,6 +1,7 @@
 class CreateSegments < ActiveRecord::Migration[6.0]
   def change
     create_table :segments do |t|
+      # t.integer :temp_id
       t.references :itinerary, null: false, foreign_key: true
       t.string :departure_iata
       t.string :departure_city_code

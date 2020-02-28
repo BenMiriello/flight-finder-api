@@ -6,7 +6,7 @@
 # Itinerary.destroy_all
 
 require 'json'
-sample_response_1_file = File.open('db/amadeus_test/sample_response_1.rb', 'r')
+sample_response_1_file = File.open('amadeus/sample_response_1.rb', 'r')
 sample_response_1 = JSON.parse(sample_response_1_file.read)
 
 def mapResponseToModels(response)

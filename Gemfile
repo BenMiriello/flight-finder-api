@@ -53,3 +53,5 @@ gem 'httparty'
 gem "dotenv-rails"
 
 gem 'kaminari'
+
+gem 'rest-client'
