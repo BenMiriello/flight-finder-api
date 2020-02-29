@@ -1,4 +1,5 @@
 start_time = Time.now
+
 puts 'Destroying airlines...'
 Airline.destroy_all
 puts 'Destroying cities...'
