@@ -1,10 +1,10 @@
 class CreatePurchases < ActiveRecord::Migration[6.0]
-  def change
-    create_table :purchases do |t|
-      t.references :user, null: false, foreign_key: true
-      t.references :flight_offer, null: false, foreign_key: true
+    def change
+        create_table :purchases do |t|
+            t.references :user, null: false, foreign_key: true
+            t.references :flight_offer, null: false, foreign_key: true
 
-      t.timestamps
+            t.timestamps
+        end
     end
-  end
 end

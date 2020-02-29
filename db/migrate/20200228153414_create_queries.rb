@@ -13,6 +13,8 @@ class CreateQueries < ActiveRecord::Migration[6.0]
             t.integer :nonStop
             t.integer :maxPrice
             t.boolean :complete, :default => false
+            t.integer :origin_id
+            t.integer :destination_id
 
             t.timestamps
         end
