@@ -24,17 +24,24 @@ class Api::V1::FlightOffersController < ApplicationController
 
     def create
 
+        searchParams = params[:searchParams]
+
+        origin = Airport.find_by :iata_code => searchParams["originLocationCode"]
+        destination = Airport.find_by :iata_code => searchParams["destinationLocationCode"]
         @query = Query.create(
-            # originLocationCode: '',
-            # destinationLocationCode: '',
-            # departureDate: '',
-            # returnDate: '',
-            # travelClass: 'Economy',
-            # adults: 1,
-            # children: 0,
-            # infants: 0,
-            # nonStop: false,
-            # maxPrice: 0
+            originLocationCode: searchParams.originLocationCode,
+            destinationLocationCode: searchParams.destinationLocationCode,
+            departureDate: searchParams.departureDate,
+            returnDate: searchParams.returnDate,
+            travelClass: searchParams.travelClass,
+            adults: searchParams.adults,
+            children: searchParams.children,
+            infants: searchParams.infants,
+            nonStop: searchParams.nonStop,
+            maxPrice: searchParams.maxPrice,
+            user_id: searchParams.user_id,
+            origin_id: origin.id,
+            destination_id: destination.id
         )
 
         # Set required parameters

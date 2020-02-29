@@ -1,7 +1,9 @@
 class ParseResponse 
     
-    def self.mapResponseToModels(query, datum, dictionaries, query_id64)
+    def self.mapResponseToModels(query, datum, dictionaries)
         segments_array = []
+        
+        # create FlightOffer
         flight_offer_object = FlightOffer.create(
             query_id: query.id,
             gds: datum["source"],
@@ -61,7 +63,6 @@ class ParseResponse
     # create travelers
     datum["travelerPricings"].each do |traveler|
         traveler_object = Traveler.create(
-            # temp_id: SecureRandom.base64(10),
             flight_offer_id: flight_offer_object.id,
             fare_option: traveler["fareOption"],
             traveler_type: traveler["travelerType"],

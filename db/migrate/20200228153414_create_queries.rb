@@ -2,8 +2,8 @@ class CreateQueries < ActiveRecord::Migration[6.0]
     def change
         create_table :queries do |t|
             t.references :user, null: false, foreign_key: true 
-            t.string :originLocationCode
-            t.string :destinationLocationCode
+            t.string :originIATACode
+            t.string :destinationIATACode
             t.datetime :departureDate
             t.datetime :returnDate
             t.string :travelClass
@@ -12,7 +12,7 @@ class CreateQueries < ActiveRecord::Migration[6.0]
             t.integer :infants
             t.integer :nonStop
             t.integer :maxPrice
-            t.boolean :complete, :default => false
+            # t.boolean :resolved, :default => false
             t.integer :origin_id
             t.integer :destination_id
 

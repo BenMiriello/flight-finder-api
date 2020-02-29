@@ -29,6 +29,7 @@ Rails.application.routes.draw do
             delete '/purchases', to: 'purchases#destroy'
             resources :purchases, only: [:create, :delete]
             resources :favorites, only: [:create, :destroy]
+            resources :queries, only: [:create, :show]
             # resources :flight_offers, only: [:show]
 
             # resources :flight_offers, only: [:index, :show] do
