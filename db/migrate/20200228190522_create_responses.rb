@@ -4,6 +4,7 @@ class CreateResponses < ActiveRecord::Migration[6.0]
             t.references :query, null: false, foreign_key: true
             t.integer :count
             t.string :self
+            t.integer :data_length
             t.boolean :resolved, :default => false
 
             t.timestamps
