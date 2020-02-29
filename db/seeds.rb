@@ -3,17 +3,19 @@ require 'rest-client'
 
 start_time = Time.now
 
-puts 'Destroying airlines...'
+puts "\nDestroying Airlines..."
 Airline.destroy_all
-puts 'Destroying cities...'
+puts 'Destroying Airports...'
+Airport.destroy_all
+puts 'Destroying Cities...'
 City.destroy_all
-puts 'Destroying countries...'
+puts 'Destroying Countries...'
 Country.destroy_all
-puts 'Destroying users...'
+puts 'Destroying Users...'
 User.destroy_all
 
 destroy_time = Time.now
-puts "Destroy time: #{destroy_time - start_time}"
+puts "...Destroy time: #{destroy_time - start_time}\n\n"
 
 # ###################################################################################
 # CREATE AIRLINES
@@ -216,7 +218,7 @@ airline_templates.each do |airline|
 end
 
 airline_create_time = Time.now
-puts "Airline create time: #{airline_create_time - destroy_time}"
+puts "...Airline create time: #{airline_create_time - destroy_time}\n\n"
 
 ####################################################################################
 # CREATE AIRPORTS, CITIES AND COUNTRIES
@@ -694,29 +696,7 @@ city_images = [
 
 ]
 
-# File.open('./seed_data/cities_by_country.rb', 'r') do |file| 
-#     puts file.read
-#     file.read.each do |country|
-#         puts "Creating country and cities for #{country[0]}..."
-#         new_country = Country.create(name: country[0], image: "")
-#         i = -1
-#         country[1].each do |city|
-#             if country[1][i] && country[1][i] != country[1][i + 1]
-#                 City.create(name: city, image: "", country_id: new_country.id)
-#             end
-#             i += 1
-#         end
-#     end
-# end
-
-raw_response = RestClient::Request.execute(
-    :method => :get,
-    :url => "https://gist.githubusercontent.com/386er/84a78c9dd226a9395818/raw/dbed7a575d899876bff063a3590081f40816309e/airports.json"
-)
-# response = JSON.parse(raw_response)
-new_file = File.open('db/seed_data/airport_data.json', 'w')
-new_file.write(raw_response)
-new_file.close
+# to update (and overwrite) airport,city,country seed data, run command: ruby db/seed_data/get_airport_data.rb
 
 puts 'Creating Airports, Cities, and Countries...'
 File.open('./db/seed_data/airport_data.json', 'r') do |file| 
@@ -736,13 +716,14 @@ File.open('./db/seed_data/airport_data.json', 'r') do |file|
             :iata_code => airport["IATA/FAA"],
             :icao_code => airport["ICAO"],
             :longitude => airport["Longitude"],
-            :latitude => airport["Latitude"]
+            :latitude => airport["Latitude"],
+            :destinations => airport["destinations"].length
         )
     end
 end
 
 city_country_create_time = Time.now
-puts "Airport, City and Country create time: #{city_country_create_time - airline_create_time}"
+puts "...Airport, City and Country create time: #{city_country_create_time - airline_create_time}\n\n"
 
 puts 'Adding images to the top cities...'
 city_images.each do |city|
@@ -751,7 +732,7 @@ city_images.each do |city|
 end
 
 city_images_create_time = Time.now
-puts "City images add time: #{city_images_create_time - city_country_create_time}"
+puts "City images add time: #{city_images_create_time - city_country_create_time}\n\n"
 
-puts "Seeds run time: #{Time.now - start_time}"
+puts "...Seeds run time: #{Time.now - start_time}\n"
 

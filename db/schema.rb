@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
     t.string "longitude"
     t.string "alias"
     t.string "dst"
+    t.integer "destinations"
     t.bigint "city_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -97,8 +98,10 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
 
   create_table "queries", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.string "originLocationCode"
-    t.string "destinationLocationCode"
+    t.bigint "origin_id_id"
+    t.bigint "destination_id_id"
+    t.string "originIATACode"
+    t.string "destinationIATACode"
     t.datetime "departureDate"
     t.datetime "returnDate"
     t.string "travelClass"
@@ -107,11 +110,12 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
     t.integer "infants"
     t.integer "nonStop"
     t.integer "maxPrice"
-    t.boolean "complete", default: false
     t.integer "origin_id"
     t.integer "destination_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_id_id"], name: "index_queries_on_destination_id_id"
+    t.index ["origin_id_id"], name: "index_queries_on_origin_id_id"
     t.index ["user_id"], name: "index_queries_on_user_id"
   end
 
@@ -155,6 +159,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
     t.bigint "query_id", null: false
     t.integer "count"
     t.string "self"
+    t.boolean "resolved", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["query_id"], name: "index_responses_on_query_id"

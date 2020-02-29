@@ -8,6 +8,7 @@ class CreateAirports < ActiveRecord::Migration[6.0]
             t.string :longitude
             t.string :alias
             t.string :dst
+            t.integer :destinations
             t.references :city, :foreign_key => true, :nil => false
 
             t.timestamps

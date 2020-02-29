@@ -13,3 +13,4 @@ new_file.close
 
 # file_time = Time.now
 # new_file = File.open("db/seed_data/airport_data_#{file_time.to_s[0...-6]}.json", "w")
+
