@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     namespace :api do
         namespace :v1 do
             
+            get '/queries/stream', to: 'queries#stream'
             resources :users, only: [:create, :update, :destroy]
             post '/login', to: 'auth#create'
             get '/profile', to: 'users#profile'
@@ -19,7 +20,7 @@ Rails.application.routes.draw do
             delete '/purchases', to: 'purchases#destroy'
             resources :purchases, only: [:create, :delete]
             resources :favorites, only: [:create, :destroy]
-            post '/queries/test', to: 'queries#test'
+            post '/queries/initiate_test', to: 'queries#initiate_test'
             resources :queries, only: [:create, :show]
             resources :responses, only: [:show]
             

@@ -55,3 +55,5 @@ gem "dotenv-rails"
 gem 'kaminari'
 
 gem 'rest-client'
+
+gem 'spawnling', '~>2.1'

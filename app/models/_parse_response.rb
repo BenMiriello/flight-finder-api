@@ -1,11 +1,11 @@
 class ParseResponse 
     
-    def self.mapResponseToModels(response_obj_id, datum, dictionaries)
+    def self.mapResponseToModels(response_obj, datum, dictionaries)
         segments_array = []
-        
+        # byebug
         # create FlightOffer
         flight_offer_object = FlightOffer.create(
-            response_id: response_obj_id,
+            response_id: response_obj.id,
             gds: datum["source"],
             instant_ticketing_required: datum["instantTicketingRequired"],
             non_homogenous: datum["nonHomogeneous"],
@@ -25,65 +25,73 @@ class ParseResponse
         
         # create Itineraries
         datum["itineraries"].each do |itinerary|
-            itinerary_object = Itinerary.create(
-                flight_offer_id: flight_offer_object.id,
-                duration: itinerary["duration"]
-            )
-            
-            # create Segments
-            itinerary["segments"].each do |segment|
-                airline = Airline.find_by :iata_code => segment["carrierCode"]
-                operating_airline = Airline.find_by :iata_code => segment["operating"]["carrierCode"]
-                origin = Airport.find_by :iata_code => segment["departure"]["iataCode"]
-                destination = Airport.find_by :iata_code => segment["arrival"]["iataCode"]
-                
-                segment_object = Segment.create(
-                    airline_id: airline.id,
-                    operating_airline_id: operating_airline.id,
-                    origin_id: origin.id,
-                    destination_id: destination.id,
-                    departure_terminal: segment["departure"]["terminal"],
-                    departure_time: segment["departure"]["at"],
-                    arrival_terminal: segment["arrival"]["terminal"],
-                    arrival_time: segment["arrival"]["at"],
-                    flight_number: segment["number"],
-                    aircraft_code: segment["aircraft"]["code"],
-                    aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
-                    duration: segment["duration"],
-                    xid: segment["id"].to_i,
-                    number_of_stops: segment["numberOfStops"],
-                    blacklisted_in_eu: segment["blacklistedInEU"],
-                    itinerary_id: itinerary_object.id
+            # Thread.new do
+                itinerary_object = Itinerary.create(
+                    flight_offer_id: flight_offer_object.id,
+                    duration: itinerary["duration"]
                 )
-                segments_array << segment_object
-            end
+                
+                # create Segments
+                itinerary["segments"].each do |segment|
+                    # Thread.new do
+                        airline = Airline.find_by :iata_code => segment["carrierCode"]
+                        operating_airline = Airline.find_by :iata_code => segment["operating"]["carrierCode"]
+                        origin = Airport.find_by :iata_code => segment["departure"]["iataCode"]
+                        destination = Airport.find_by :iata_code => segment["arrival"]["iataCode"]
+                        segment_object = Segment.create(
+                            airline_id: airline.id,
+                            operating_airline_id: operating_airline.id,
+                            origin_id: origin.id,
+                            destination_id: destination.id,
+                            departure_terminal: segment["departure"]["terminal"],
+                            departure_time: segment["departure"]["at"],
+                            arrival_terminal: segment["arrival"]["terminal"],
+                            arrival_time: segment["arrival"]["at"],
+                            flight_number: segment["number"],
+                            aircraft_code: segment["aircraft"]["code"],
+                            aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
+                            duration: segment["duration"],
+                            xid: segment["id"].to_i,
+                            number_of_stops: segment["numberOfStops"],
+                            blacklisted_in_eu: segment["blacklistedInEU"],
+                            itinerary_id: itinerary_object.id
+                        )
+                    # end
+                    segments_array << segment_object
+                end
+            # end
         end
         
         # create travelers
         datum["travelerPricings"].each do |traveler|
-            traveler_object = Traveler.create(
-                flight_offer_id: flight_offer_object.id,
-                fare_option: traveler["fareOption"],
-                traveler_type: traveler["travelerType"],
-                currency_code: traveler["price"]["currency"],
-                currency: dictionaries["currencies"][traveler["price"]["currency"]],
-                total: traveler["price"]["total"].to_i,
-                base: traveler["price"]["base"]
-            )
+            # Thread.new do
+                traveler_object = Traveler.create(
+                    flight_offer_id: flight_offer_object.id,
+                    fare_option: traveler["fareOption"],
+                    traveler_type: traveler["travelerType"],
+                    currency_code: traveler["price"]["currency"],
+                    currency: dictionaries["currencies"][traveler["price"]["currency"]],
+                    total: traveler["price"]["total"].to_i,
+                    base: traveler["price"]["base"]
+                )
+            # end
             
             # create traveler_segments
             traveler["fareDetailsBySegment"].each do |fare_details|
-                TravelerSegment.create(
-                    traveler_id: traveler_object.id,
-                    segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
-                    cabin: fare_details["cabin"],
-                    fare_basis: fare_details["fareBasis"],
-                    branded_fare: fare_details["brandedFare"],
-                    rbd_class: fare_details["class"], # class_RBD
-                    included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
-                )
+                # Thread.new do
+                    TravelerSegment.create(
+                        traveler_id: traveler_object.id,
+                        segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
+                        cabin: fare_details["cabin"],
+                        fare_basis: fare_details["fareBasis"],
+                        branded_fare: fare_details["brandedFare"],
+                        rbd_class: fare_details["class"], # class_RBD
+                        included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
+                    )
+                # en
             end
         end
+        puts flight_offer_object.id
         return flight_offer_object
     end
 end

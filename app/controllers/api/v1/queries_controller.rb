@@ -1,7 +1,17 @@
 class Api::V1::QueriesController < ApplicationController
     skip_before_action :authorized
 
-    def test # test controller allows testing from a stored response
+    def stream
+        response.headers['Content-Type'] = 'text/event-stream'
+        100.times {
+            response.stream.write "hello world\n"
+            # sleep 1
+        }
+    ensure
+        response.stream.close
+    end
+    
+    def initiate_test # test controller allows testing from a stored response
 
         searchParams = {
             "originLocationCode"=>"JFK", 
@@ -43,33 +53,39 @@ class Api::V1::QueriesController < ApplicationController
         # Front end can GET the response and all FOs that have been created so far before this controller method is done running.
         # This means the front end can start serving the user FOs in +- 2 seconds instead of 10-30 seconds.
         # The response is :resolved => false until all FOs have been created.
-        response_obj = Response.create()
+        response_obj = Response.create(query_id: query_obj.id)
 
-        render json: {query: query_obj, response: response_obj}
-        
-        sample_response_file = File.open('amadeus/sample_response_1.rb', 'r')
-        raw_response = sample_response_file.read
-        sample_response_file.close
+        render json: {query: query_obj, response: response_obj}.to_json
 
-        # # Write response to file for safe keeping
-        # new_file = File.open("amadeus/responses/query_id:#{query_obj.id}.rb", 'w')
-        # new_file.write(raw_response)
-        # new_file.close
-        
-        parsed_response = JSON.parse(raw_response)
-        
-        # "data" => an array of info that can be mapped into a flight offer object and associated models
-        data = parsed_response["data"]
-        # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
-        dictionaries = parsed_response["dictionaries"]
-        
-        # setting data.length allows front end to know how many FOs to expect in total
-        response_obj.data_length = data.length
+        # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
+        Spawnling.new do
+            sample_response_file = File.open('amadeus/sample_response_1.rb', 'r')
+            raw_response = sample_response_file.read
+            sample_response_file.close
 
-        # FlightOffer objects are created with associated itineraries, segments, etc.
-        data.each { |datum| ParseResponse.mapResponseToModels(response_obj.id, datum, dictionaries) }
-        
-        response_obj.resolved = true
+            # # Write response to file for safe keeping
+            # new_file = File.open("amadeus/responses/query_id:#{query_obj.id}.rb", 'w')
+            # new_file.write(raw_response)
+            # new_file.close
+            
+            parsed_response = JSON.parse(raw_response)
+            
+            # "data" => an array of info that can be mapped into a flight offer object and associated models
+            data = parsed_response["data"]
+            # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
+            dictionaries = parsed_response["dictionaries"]
+            
+            # setting data.length allows front end to know how many FOs to expect in total
+            response_obj.data_length = data.length
+
+            # FlightOffer objects are created with associated itineraries, segments, etc.
+
+            data.each do |datum| 
+                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+            end
+            
+            response_obj.resolved = true
+        end
     end
 
     def create
@@ -97,7 +113,7 @@ class Api::V1::QueriesController < ApplicationController
         # Front end can GET the response and all FOs that have been created so far before this controller method is done running.
         # This means the front end can start serving the user FOs in +- 2 seconds instead of 10-30 seconds.
         # The response is :resolved => false until all FOs have been created.
-        response_obj = Response.create()
+        response_obj = Response.create(query_id: query_obj.id)
 
         render json: {query: query_obj, response: response_obj}
 
@@ -127,7 +143,7 @@ class Api::V1::QueriesController < ApplicationController
         response_obj.data_length = data.length
 
         # FlightOffer objects are created with associated itineraries, segments, etc.
-        data.each { |datum| ParseResponse.mapResponseToModels(response_obj.id, datum, dictionaries) }
+        data.each { |datum| ParseResponse.mapResponseToModels(response_obj, datum, dictionaries) }
         
         response_obj.resolved = true
     end
