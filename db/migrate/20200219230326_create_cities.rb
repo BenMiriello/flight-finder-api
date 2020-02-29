@@ -4,6 +4,8 @@ class CreateCities < ActiveRecord::Migration[6.0]
             t.string :name
             t.string :image
             t.references :country
+            t.string :country_name
+            
         end
     end
 end

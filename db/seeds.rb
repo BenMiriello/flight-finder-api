@@ -1,3 +1,6 @@
+require 'json'
+require 'rest-client'
+
 start_time = Time.now
 
 puts 'Destroying airlines...'
@@ -9,13 +12,15 @@ Country.destroy_all
 puts 'Destroying users...'
 User.destroy_all
 
+destroy_time = Time.now
+puts "Destroy time: #{destroy_time - start_time}"
+
 # ###################################################################################
 # CREATE AIRLINES
 # ###################################################################################
 
 # AIRLINE LOGOS:
 
-# In the front end, airline logo link will be:
 #     Small Logo: `https://www.gstatic.com/flights/airline_logos/32px/}${airline.iata}.png`
 #     Larger Logo: `https://www.gstatic.com/flights/airline_logos/70px/${airline.iata}.png`
 
@@ -205,16 +210,19 @@ airline_templates = [
     {iata: "CA", name: "Air China"}
 ]
 
-puts 'Creating airlines...'
+puts 'Creating Airlines...'
 airline_templates.each do |airline|
-    Airline.create(name: airline[:name], iata: airline[:iata])
+    Airline.create(name: airline[:name], iata_code: airline[:iata])
 end
 
+airline_create_time = Time.now
+puts "Airline create time: #{airline_create_time - destroy_time}"
+
 ####################################################################################
-# CREATE CITIES AND COUNTRIES
+# CREATE AIRPORTS, CITIES AND COUNTRIES
 ####################################################################################
 
-# Suffix for cropping: "?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=100"
+# Suffix for cropping image: "?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=1000&q=100"
 
 city_images = [
     {
@@ -686,26 +694,64 @@ city_images = [
 
 ]
 
-File.open('./seed_data/cities_by_country.rb', 'r') do |file| 
-    puts file.read
-    file.read.each do |country|
-        puts "Creating country and cities for #{country[0]}..."
-        new_country = Country.create(name: country[0], image: "")
-        i = -1
-        country[1].each do |city|
-            if country[1][i] && country[1][i] != country[1][i + 1]
-                City.create(name: city, image: "", country_id: new_country.id)
-            end
-            i += 1
-        end
+# File.open('./seed_data/cities_by_country.rb', 'r') do |file| 
+#     puts file.read
+#     file.read.each do |country|
+#         puts "Creating country and cities for #{country[0]}..."
+#         new_country = Country.create(name: country[0], image: "")
+#         i = -1
+#         country[1].each do |city|
+#             if country[1][i] && country[1][i] != country[1][i + 1]
+#                 City.create(name: city, image: "", country_id: new_country.id)
+#             end
+#             i += 1
+#         end
+#     end
+# end
+
+raw_response = RestClient::Request.execute(
+    :method => :get,
+    :url => "https://gist.githubusercontent.com/386er/84a78c9dd226a9395818/raw/dbed7a575d899876bff063a3590081f40816309e/airports.json"
+)
+# response = JSON.parse(raw_response)
+new_file = File.open('db/seed_data/airport_data.json', 'w')
+new_file.write(raw_response)
+new_file.close
+
+puts 'Creating Airports, Cities, and Countries...'
+File.open('./db/seed_data/airport_data.json', 'r') do |file| 
+    # byebug
+    airport_data = JSON.parse(file.read)
+    airport_data.each do |airport|
+        country = Country.find_or_create_by(:name => airport["Country"], image: "")
+        city = City.find_or_create_by(
+            :name => airport["City"],
+            :country_id => country.id,
+            :country_name => airport["Country"],
+            :image => ""
+        )
+        Airport.create(
+            :city_id => city.id,
+            :name => airport["Name"], 
+            :iata_code => airport["IATA/FAA"],
+            :icao_code => airport["ICAO"],
+            :longitude => airport["Longitude"],
+            :latitude => airport["Latitude"]
+        )
     end
 end
+
+city_country_create_time = Time.now
+puts "Airport, City and Country create time: #{city_country_create_time - airline_create_time}"
 
 puts 'Adding images to the top cities...'
 city_images.each do |city|
     found_city = City.where(name: city[:name])
     found_city.update(image: city[:image])
 end
+
+city_images_create_time = Time.now
+puts "City images add time: #{city_images_create_time - city_country_create_time}"
 
 puts "Seeds run time: #{Time.now - start_time}"
 

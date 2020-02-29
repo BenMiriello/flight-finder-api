@@ -25,16 +25,16 @@ class Api::V1::FlightOffersController < ApplicationController
     def create
 
         @query = Query.create(
-            originLocationCode: '',
-            destinationLocationCode: '',
-            departureDate: '',
-            returnDate: '',
-            travelClass: 'Economy',
-            adults: 1,
-            children: 0,
-            infants: 0,
-            nonStop: false,
-            maxPrice: 0
+            # originLocationCode: '',
+            # destinationLocationCode: '',
+            # departureDate: '',
+            # returnDate: '',
+            # travelClass: 'Economy',
+            # adults: 1,
+            # children: 0,
+            # infants: 0,
+            # nonStop: false,
+            # maxPrice: 0
         )
 
         # Set required parameters

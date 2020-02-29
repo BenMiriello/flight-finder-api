@@ -18,3 +18,4 @@ end
 #   t.index ["segment_id"], name: "index_traveler_segments_on_segment_id"
 #   t.index ["traveler_id"], name: "index_traveler_segments_on_traveler_id"
 # end
+

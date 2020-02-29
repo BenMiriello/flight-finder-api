@@ -10,10 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_23_214819) do
+ActiveRecord::Schema.define(version: 2020_02_28_211935) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "airlines", force: :cascade do |t|
+    t.string "name"
+    t.string "iata_code"
+  end
+
+  create_table "airports", force: :cascade do |t|
+    t.string "name"
+    t.string "iata_code"
+    t.string "icao_code"
+    t.string "latitude"
+    t.string "longitude"
+    t.string "alias"
+    t.string "dst"
+    t.bigint "city_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["city_id"], name: "index_airports_on_city_id"
+  end
+
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+    t.bigint "country_id"
+    t.string "country_name"
+    t.index ["country_id"], name: "index_cities_on_country_id"
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "image"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.bigint "user_id", null: false
@@ -63,31 +95,91 @@ ActiveRecord::Schema.define(version: 2020_02_23_214819) do
     t.index ["user_id"], name: "index_purchases_on_user_id"
   end
 
+  create_table "queries", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "originLocationCode"
+    t.string "destinationLocationCode"
+    t.datetime "departureDate"
+    t.datetime "returnDate"
+    t.string "travelClass"
+    t.integer "adults"
+    t.integer "children"
+    t.integer "infants"
+    t.integer "nonStop"
+    t.integer "maxPrice"
+    t.boolean "complete", default: false
+    t.integer "origin_id"
+    t.integer "destination_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_queries_on_user_id"
+  end
+
+  create_table "query_airlines", force: :cascade do |t|
+    t.bigint "airline_id", null: false
+    t.bigint "query_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["airline_id"], name: "index_query_airlines_on_airline_id"
+    t.index ["query_id"], name: "index_query_airlines_on_query_id"
+  end
+
+  create_table "query_airports", force: :cascade do |t|
+    t.bigint "airline_id", null: false
+    t.bigint "query_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["airline_id"], name: "index_query_airports_on_airline_id"
+    t.index ["query_id"], name: "index_query_airports_on_query_id"
+  end
+
+  create_table "respone_airlines", force: :cascade do |t|
+    t.bigint "airline_id", null: false
+    t.bigint "response_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["airline_id"], name: "index_respone_airlines_on_airline_id"
+    t.index ["response_id"], name: "index_respone_airlines_on_response_id"
+  end
+
+  create_table "response_airports", force: :cascade do |t|
+    t.bigint "airport_id", null: false
+    t.bigint "airline_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["airline_id"], name: "index_response_airports_on_airline_id"
+    t.index ["airport_id"], name: "index_response_airports_on_airport_id"
+  end
+
+  create_table "responses", force: :cascade do |t|
+    t.bigint "query_id", null: false
+    t.integer "count"
+    t.string "self"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["query_id"], name: "index_responses_on_query_id"
+  end
+
   create_table "segments", force: :cascade do |t|
     t.bigint "itinerary_id", null: false
-    t.string "departure_iata"
-    t.string "departure_city_code"
-    t.string "departure_country_code"
+    t.bigint "airline_id"
+    t.integer "operating_airline"
+    t.integer "origin_id"
+    t.integer "destination_id"
     t.string "departure_terminal"
     t.datetime "departure_time"
-    t.string "arrival_iata"
-    t.string "arrival_city_code"
-    t.string "arrival_country_code"
     t.string "arrival_terminal"
     t.datetime "arrival_time"
-    t.string "carrier_code"
-    t.string "carrier"
     t.string "flight_number"
     t.string "aircraft_code"
     t.string "aircraft"
-    t.string "operating_carrier_code"
-    t.string "operating_carrier"
     t.string "duration"
     t.integer "xid"
     t.integer "number_of_stops"
     t.boolean "blacklisted_in_eu"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["airline_id"], name: "index_segments_on_airline_id"
     t.index ["itinerary_id"], name: "index_segments_on_itinerary_id"
   end
 
@@ -129,11 +221,22 @@ ActiveRecord::Schema.define(version: 2020_02_23_214819) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "airports", "cities"
   add_foreign_key "favorites", "flight_offers"
   add_foreign_key "favorites", "users"
   add_foreign_key "itineraries", "flight_offers"
   add_foreign_key "purchases", "flight_offers"
   add_foreign_key "purchases", "users"
+  add_foreign_key "queries", "users"
+  add_foreign_key "query_airlines", "airlines"
+  add_foreign_key "query_airlines", "queries"
+  add_foreign_key "query_airports", "airlines"
+  add_foreign_key "query_airports", "queries"
+  add_foreign_key "respone_airlines", "airlines"
+  add_foreign_key "respone_airlines", "responses"
+  add_foreign_key "response_airports", "airlines"
+  add_foreign_key "response_airports", "airports"
+  add_foreign_key "responses", "queries"
   add_foreign_key "segments", "itineraries"
   add_foreign_key "traveler_segments", "segments"
   add_foreign_key "traveler_segments", "travelers"

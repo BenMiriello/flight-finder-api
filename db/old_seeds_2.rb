@@ -107,3 +107,23 @@ mapResponseToModels(sample_response_1)
 sample_response_1_file.close
 
 # TravelerSegment.create(traveler_/id: traveler_object.id, segment_id: segments_array.select{ |segment| segment.xid == fare_details["segmentId"].to_i }, segment_xid: fare_details["segmentId"].to_i, cabin: fare_details["cabin"], fare_basis: fare_details["fareBasis"], branded_fare: fare_details["brandedFare"], rbd_class: fare_details["class"])
+
+
+
+# POSSIBLE SOURCE FOR COUNTRY CODE DATA:
+
+# // 20200228202134
+# // http://www.airport-data.com/api/ap_info.json?iata=JFK
+
+# {
+#   "icao": "KJFK",
+#   "iata": "JFK",
+#   "name": "John F Kennedy International Airport",
+#   "location": "New York, NY",
+#   "country": "United States",
+#   "country_code": "US",
+#   "longitude": "-73.778926",
+#   "latitude": "40.639751",
+#   "link": "http://www.airport-data.com/airport/JFK/",
+#   "status": 200
+# }
