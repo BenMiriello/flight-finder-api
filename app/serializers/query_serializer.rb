@@ -1,6 +1,14 @@
 class QuerySerializer < ActiveModel::Serializer
-    attributes :id, :queryParams, :flight_offers, :response, :flight_offers
+    attributes :id, :response_id, :origin, :destination, :queryParams
 
+    belongs_to :user
+
+    belongs_to :destination, :foreign_key => :destination_id, :class_name => 'Airport'
+    belongs_to :origin, :foreign_key => :origin_id, :class_name => 'Airport'
+    
+    has_one :response
+    # has_many :flight_offers, through: :response
+    
     def queryParams
         object = self.object
         return {
@@ -20,14 +28,14 @@ class QuerySerializer < ActiveModel::Serializer
         }
     end
 
-    def response
-        response = Response.find_by :query_id => self.object.id
-        if response
-            return ResponseSerializer.new(response)
-        else
-            return {error: "No Response object was found."}
-        end
-    end
+    # def response
+    #     response = Response.find_by :query_id => self.object.id
+    #     if response
+    #         return ResponseSerializer.new(response)
+    #     else
+    #         return {error: "No Response object was found."}
+    #     end
+    # end
 
 end
 

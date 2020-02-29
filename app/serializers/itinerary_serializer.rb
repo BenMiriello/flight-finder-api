@@ -1,15 +1,11 @@
 class ItinerarySerializer < ActiveModel::Serializer
-  attributes :id, :duration, :segments
+    attributes :id, :duration, :segments, :origin, :destination
 
-  has_many :segments
+    has_many :segments
+    belongs_to :origin
+    belongs_to :destination
+    # alias_attribute :origin, :airport
+    # alias_attribute :destination, :airport
+
 end
 
-## SCHEMA
-
-# create_table "itineraries", force: :cascade do |t|
-#   t.string "duration"
-#   t.bigint "flight_offer_id", null: false
-#   t.datetime "created_at", precision: 6, null: false
-#   t.datetime "updated_at", precision: 6, null: false
-#   t.index ["flight_offer_id"], name: "index_itineraries_on_flight_offer_id"
-# end

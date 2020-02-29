@@ -1,6 +1,6 @@
-class Generate
+class Url
 
-    def self.url(searchParams, query)
+    def self.generate(query)
         url = "https://test.api.amadeus.com/v2/shopping/flight-offers"
         origin = query[:originLocationCode].upcase
         url += "?originLocationCode=#{origin}"
