@@ -1,12 +1,9 @@
 class ParseResponse 
-        
+    
     def self.mapResponseToModels(query, datum, dictionaries, query_id64)
         segments_array = []
         flight_offer_object = FlightOffer.create(
-            # user_id: user_id,
-            # temp_id: SecureRandom.base64(10),
             query_id: query.id,
-            xid: datum["id"],
             gds: datum["source"],
             instant_ticketing_required: datum["instantTicketingRequired"],
             non_homogenous: datum["nonHomogeneous"],
@@ -23,77 +20,70 @@ class ParseResponse
             included_checked_bags_only: datum["pricingOptions"]["includedCheckedBagsOnly"],
             validating_airline_codes: datum["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
         )
-
-        # create Itineraries
-        datum["itineraries"].each do |itinerary|
-            itinerary_object = Itinerary.create(
-                # temp_id: SecureRandom.base64(10),
-                flight_offer_id: flight_offer_object.id,
-                duration: itinerary["duration"]
-            )
-
-            # create Segments
-            itinerary["segments"].each do |segment|
-                segment_object = Segment.create(
-                    # temp_id: SecureRandom.base64(10),
-                    departure_iata: segment["departure"]["iataCode"],
-                    departure_city_code: dictionaries["locations"][segment["departure"]["iataCode"]]["cityCode"],
-                    departure_country_code: dictionaries["locations"][segment["departure"]["iataCode"]]["countryCode"],
-                    departure_terminal: segment["departure"]["terminal"],
-                    departure_time: segment["departure"]["at"],
-                    arrival_iata: segment["arrival"]["iataCode"],
-                    arrival_city_code: dictionaries["locations"][segment["arrival"]["iataCode"]]["cityCode"],
-                    arrival_country_code: dictionaries["locations"][segment["arrival"]["iataCode"]]["countryCode"],
-                    arrival_terminal: segment["arrival"]["terminal"],
-                    arrival_time: segment["arrival"]["at"],
-                    carrier_code: segment["carrierCode"],
-                    carrier: dictionaries["carriers"][segment["carrierCode"]],
-                    flight_number: segment["number"],
-                    aircraft_code: segment["aircraft"]["code"],
-                    aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
-                    operating_carrier_code: segment["operating"]["carrierCode"],
-                    operating_carrier: dictionaries["carriers"][segment["operatingCarrierCode"]],
-                    duration: segment["duration"],
-                    xid: segment["id"].to_i,
-                    number_of_stops: segment["numberOfStops"],
-                    blacklisted_in_eu: segment["blacklistedInEU"],
-                    itinerary_id: itinerary_object.id
-                )
-                segments_array << segment_object
-            end
-        end
-
-        # create travelers
-        datum["travelerPricings"].each do |traveler|
-            traveler_object = Traveler.create(
-                # temp_id: SecureRandom.base64(10),
-                flight_offer_id: flight_offer_object.id,
-                xid: traveler["travelerId"],
-                fare_option: traveler["fareOption"],
-                traveler_type: traveler["travelerType"],
-                currency_code: traveler["price"]["currency"],
-                currency: dictionaries["currencies"][traveler["price"]["currency"]],
-                total: traveler["price"]["total"].to_i,
-                base: traveler["price"]["base"]
-            )
-
-            # create traveler_segments
-            traveler["fareDetailsBySegment"].each do |fare_details|
-                TravelerSegment.create(
-                    # temp_id: SecureRandom.base64(10),
-                    traveler_id: traveler_object.id,
-                    segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
-                    segment_xid: fare_details["segmentId"].to_i,
-                    cabin: fare_details["cabin"],
-                    fare_basis: fare_details["fareBasis"],
-                    branded_fare: fare_details["brandedFare"],
-                    rbd_class: fare_details["class"], # class_RBD
-                    included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
-                )
-            end
-        end
-        return flight_offer_object
     end
-
+        
+    # create Itineraries
+    datum["itineraries"].each do |itinerary|
+        itinerary_object = Itinerary.create(
+            flight_offer_id: flight_offer_object.id,
+            duration: itinerary["duration"]
+        )
+        
+        # create Segments
+        itinerary["segments"].each do |segment|
+            airline = Airline.find_by :iata_code => segment["carrierCode"]
+            operating_airline = Airline.find_by :iata_code => segment["operating"]["carrierCode"]
+            origin = Airport.find_by :iata_code => segment["departure"]["iataCode"]
+            destination = Airport.find_by :iata_code => segment["arrival"]["iataCode"]
+            
+            segment_object = Segment.create(
+                airline_id: airline.id,
+                operating_carrier_id: operating_airline.id,
+                origin_id: origin.id,
+                destination_id: destination.id,
+                departure_terminal: segment["departure"]["terminal"],
+                departure_time: segment["departure"]["at"],
+                arrival_terminal: segment["arrival"]["terminal"],
+                arrival_time: segment["arrival"]["at"],
+                flight_number: segment["number"],
+                aircraft_code: segment["aircraft"]["code"],
+                aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
+                duration: segment["duration"],
+                xid: segment["id"].to_i,
+                number_of_stops: segment["numberOfStops"],
+                blacklisted_in_eu: segment["blacklistedInEU"],
+                itinerary_id: itinerary_object.id
+            )
+            segments_array << segment_object
+        end
+    end
+    
+    # create travelers
+    datum["travelerPricings"].each do |traveler|
+        traveler_object = Traveler.create(
+            # temp_id: SecureRandom.base64(10),
+            flight_offer_id: flight_offer_object.id,
+            fare_option: traveler["fareOption"],
+            traveler_type: traveler["travelerType"],
+            currency_code: traveler["price"]["currency"],
+            currency: dictionaries["currencies"][traveler["price"]["currency"]],
+            total: traveler["price"]["total"].to_i,
+            base: traveler["price"]["base"]
+        )
+        
+        # create traveler_segments
+        traveler["fareDetailsBySegment"].each do |fare_details|
+            TravelerSegment.create(
+                traveler_id: traveler_object.id,
+                segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
+                cabin: fare_details["cabin"],
+                fare_basis: fare_details["fareBasis"],
+                branded_fare: fare_details["brandedFare"],
+                rbd_class: fare_details["class"], # class_RBD
+                included_checked_bags_quantity: fare_details["includedCheckedBags"]["quantity"]
+            )
+        end
+    end
+    return flight_offer_object
 end
 
