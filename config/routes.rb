@@ -1,16 +1,5 @@
 Rails.application.routes.draw do
 
-  namespace :api do
-    namespace :v1 do
-      get 'responses/show'
-    end
-  end
-  namespace :api do
-    get 'v1responses/show'
-  end
-  get 'responses/show'
-  get 'response/show'
-
     # concern :paginatable do
     #     get '(page/:page)', action: :index, on: :collection, as: ''
     # end
@@ -30,8 +19,9 @@ Rails.application.routes.draw do
             delete '/purchases', to: 'purchases#destroy'
             resources :purchases, only: [:create, :delete]
             resources :favorites, only: [:create, :destroy]
+            post '/queries/test', to: 'queries#test'
             resources :queries, only: [:create, :show]
-            resources :response, only: [:show]
+            resources :responses, only: [:show]
             
         end
     end

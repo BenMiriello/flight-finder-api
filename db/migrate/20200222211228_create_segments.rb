@@ -3,7 +3,7 @@ class CreateSegments < ActiveRecord::Migration[6.0]
     create_table :segments do |t|
       t.references :itinerary, null: false, foreign_key: true
       t.references :airline
-      t.integer :operating_airline
+      t.integer :operating_airline_id
       t.integer :origin_id
       t.integer :destination_id
       t.string :departure_terminal

@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
   end
 
   create_table "flight_offers", force: :cascade do |t|
+    t.integer "response_id", null: false
     t.string "query_id"
     t.string "xid"
     t.string "gds"
@@ -98,24 +99,23 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
 
   create_table "queries", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "origin_id_id"
-    t.bigint "destination_id_id"
-    t.string "originIATACode"
-    t.string "destinationIATACode"
-    t.datetime "departureDate"
-    t.datetime "returnDate"
+    t.bigint "origin_id"
+    t.bigint "destination_id"
+    t.string "originLocationCode"
+    t.string "destinationLocationCode"
+    t.string "departureDate"
+    t.string "returnDate"
     t.string "travelClass"
     t.integer "adults"
     t.integer "children"
     t.integer "infants"
-    t.integer "nonStop"
+    t.boolean "nonStop"
     t.integer "maxPrice"
-    t.integer "origin_id"
-    t.integer "destination_id"
+    t.integer "max"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["destination_id_id"], name: "index_queries_on_destination_id_id"
-    t.index ["origin_id_id"], name: "index_queries_on_origin_id_id"
+    t.index ["destination_id"], name: "index_queries_on_destination_id"
+    t.index ["origin_id"], name: "index_queries_on_origin_id"
     t.index ["user_id"], name: "index_queries_on_user_id"
   end
 
@@ -159,6 +159,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
     t.bigint "query_id", null: false
     t.integer "count"
     t.string "self"
+    t.integer "data_length"
     t.boolean "resolved", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -168,7 +169,7 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
   create_table "segments", force: :cascade do |t|
     t.bigint "itinerary_id", null: false
     t.bigint "airline_id"
-    t.integer "operating_airline"
+    t.integer "operating_airline_id"
     t.integer "origin_id"
     t.integer "destination_id"
     t.string "departure_terminal"

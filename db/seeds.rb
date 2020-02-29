@@ -15,7 +15,7 @@ puts 'Destroying Users...'
 User.destroy_all
 
 destroy_time = Time.now
-puts "...Destroy time: #{destroy_time - start_time}\n\n"
+puts "...Destroy time: #{destroy_time - start_time}s\n\n"
 
 # ###################################################################################
 # CREATE AIRLINES
@@ -218,7 +218,7 @@ airline_templates.each do |airline|
 end
 
 airline_create_time = Time.now
-puts "...Airline create time: #{airline_create_time - destroy_time}\n\n"
+puts "...Airline create time: #{airline_create_time - destroy_time}s\n\n"
 
 ####################################################################################
 # CREATE AIRPORTS, CITIES AND COUNTRIES
@@ -723,7 +723,7 @@ File.open('./db/seed_data/airport_data.json', 'r') do |file|
 end
 
 city_country_create_time = Time.now
-puts "...Airport, City and Country create time: #{city_country_create_time - airline_create_time}\n\n"
+puts "...Airport, City and Country create time: #{city_country_create_time - airline_create_time}s\n\n"
 
 puts 'Adding images to the top cities...'
 city_images.each do |city|
@@ -734,5 +734,5 @@ end
 city_images_create_time = Time.now
 puts "City images add time: #{city_images_create_time - city_country_create_time}\n\n"
 
-puts "...Seeds run time: #{Time.now - start_time}\n"
+puts "...Seeds run time: #{Time.now - start_time}s\n"
 
