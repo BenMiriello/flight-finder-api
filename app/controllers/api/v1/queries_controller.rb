@@ -1,4 +1,4 @@
-class Api::V1::QueryController < ApplicationController
+class Api::V1::QueriesController < ApplicationController
 
     def create
         
@@ -23,7 +23,7 @@ class Api::V1::QueryController < ApplicationController
         render json: {query: query_obj, response: response_obj}
 
         url = Url.generate(query_obj)
-        
+
         token = 'DeGgi5Gk6bTc3fAaW6znQt5nU06q'
         
         raw_response = RestClient::Request.execute(

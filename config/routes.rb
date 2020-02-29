@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    namespace :v1 do
+      get 'responses/show'
+    end
+  end
+  namespace :api do
+    get 'v1responses/show'
+  end
+  get 'responses/show'
   get 'response/show'
 
     # concern :paginatable do
