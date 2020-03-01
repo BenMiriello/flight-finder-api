@@ -53,9 +53,12 @@ class Api::V1::QueriesController < ApplicationController
         # Front end can GET the response and all FOs that have been created so far before this controller method is done running.
         # This means the front end can start serving the user FOs in +- 2 seconds instead of 10-30 seconds.
         # The response is :resolved => false until all FOs have been created.
-        response_obj = Response.create(query_id: query_obj.id)
+        response_obj = Response.create(
+            :query_id => query_obj.id,
+            :real_flight_offer_count => 0    
+        )
 
-        render json: {query: query_obj, response: response_obj}.to_json
+        render json: {:query => query_obj, :response => response_obj}.to_json
 
         # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
         Spawnling.new do
@@ -76,19 +79,15 @@ class Api::V1::QueriesController < ApplicationController
             dictionaries = parsed_response["dictionaries"]
             
             # setting data.length allows front end to know how many FOs to expect in total
-            response_obj.data_length = data.length
+            response_obj.update :expected_flight_offer_count => data.length
 
             # FlightOffer objects are created with associated itineraries, segments, etc.
-
-            i = 0
             data.each do |datum| 
-                if i < 10
-                    ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
-                end
-                i += 1
+                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
             end
             
-            response_obj.resolved = true
+            response_obj.update :resolved => true
         end
     end
 

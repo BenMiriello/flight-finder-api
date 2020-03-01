@@ -157,9 +157,9 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
 
   create_table "responses", force: :cascade do |t|
     t.bigint "query_id", null: false
-    t.integer "count"
+    t.integer "real_flight_offer_count"
     t.string "self"
-    t.integer "data_length"
+    t.integer "expected_flight_offer_count"
     t.boolean "resolved", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

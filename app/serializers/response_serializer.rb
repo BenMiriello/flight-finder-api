@@ -1,5 +1,5 @@
 class ResponseSerializer < ActiveModel::Serializer
-    attributes :id, :data_length, :count, :resolved, :airports, :airlines, :flight_offers
+    attributes :id, :expected_flight_offer_count, :real_flight_offer_count, :resolved, :airports, :airlines, :flight_offers
 
     def airports
         response_airports = ResponseAirport.where :response_id => self.object.id
