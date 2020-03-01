@@ -1,15 +1,15 @@
 class Api::V1::QueriesController < ApplicationController
     skip_before_action :authorized
 
-    def stream
-        response.headers['Content-Type'] = 'text/event-stream'
-        100.times {
-            response.stream.write "hello world\n"
-            # sleep 1
-        }
-    ensure
-        response.stream.close
-    end
+    # def stream
+    #     response.headers['Content-Type'] = 'text/event-stream'
+    #     100.times {
+    #         response.stream.write "hello world\n"
+    #         # sleep 1
+    #     }
+    # ensure
+    #     response.stream.close
+    # end
     
     def initiate_test # test controller allows testing from a stored response
 
@@ -79,6 +79,7 @@ class Api::V1::QueriesController < ApplicationController
             dictionaries = parsed_response["dictionaries"]
             
             # setting data.length allows front end to know how many FOs to expect in total
+            # byebug
             response_obj.update :expected_flight_offer_count => data.length
 
             # FlightOffer objects are created with associated itineraries, segments, etc.
