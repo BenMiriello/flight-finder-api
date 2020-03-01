@@ -1,7 +1,10 @@
 class UserSerializer < ActiveModel::Serializer
     attributes :id, :username, :avatar, :bio, :favorited_flight_offers, :purchased_flight_offers, :queries
 
-    has_many :queries
+    # has_many :queries
+    def queries
+        Query.where(:user_id => self.object.id)
+    end
     
     def favorited_flight_offers
         return self.object.favorited_flight_offers.map do |flight_offer|

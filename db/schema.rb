@@ -137,22 +137,22 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
     t.index ["query_id"], name: "index_query_airports_on_query_id"
   end
 
-  create_table "respone_airlines", force: :cascade do |t|
+  create_table "response_airlines", force: :cascade do |t|
     t.bigint "airline_id", null: false
     t.bigint "response_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["airline_id"], name: "index_respone_airlines_on_airline_id"
-    t.index ["response_id"], name: "index_respone_airlines_on_response_id"
+    t.index ["airline_id"], name: "index_response_airlines_on_airline_id"
+    t.index ["response_id"], name: "index_response_airlines_on_response_id"
   end
 
   create_table "response_airports", force: :cascade do |t|
+    t.bigint "response_id", null: false
     t.bigint "airport_id", null: false
-    t.bigint "airline_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["airline_id"], name: "index_response_airports_on_airline_id"
     t.index ["airport_id"], name: "index_response_airports_on_airport_id"
+    t.index ["response_id"], name: "index_response_airports_on_response_id"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -238,10 +238,10 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
   add_foreign_key "query_airlines", "queries"
   add_foreign_key "query_airports", "airlines"
   add_foreign_key "query_airports", "queries"
-  add_foreign_key "respone_airlines", "airlines"
-  add_foreign_key "respone_airlines", "responses"
-  add_foreign_key "response_airports", "airlines"
+  add_foreign_key "response_airlines", "airlines"
+  add_foreign_key "response_airlines", "responses"
   add_foreign_key "response_airports", "airports"
+  add_foreign_key "response_airports", "responses"
   add_foreign_key "responses", "queries"
   add_foreign_key "segments", "itineraries"
   add_foreign_key "traveler_segments", "segments"

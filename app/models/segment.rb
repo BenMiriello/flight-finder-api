@@ -9,5 +9,13 @@ class Segment < ApplicationRecord
     belongs_to :origin, :foreign_key => :origin_id, :class_name => 'Airport'
     belongs_to :destination, :foreign_key => :destination_id, :class_name => 'Airport'
 
+    def airline
+        Airline.find self.airline_id
+    end
+
+    def operating_airline
+        Airline.find self.operating_airline_id
+    end
+    
 end
 

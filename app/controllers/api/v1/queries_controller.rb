@@ -80,8 +80,12 @@ class Api::V1::QueriesController < ApplicationController
 
             # FlightOffer objects are created with associated itineraries, segments, etc.
 
+            i = 0
             data.each do |datum| 
-                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                if i < 10
+                    ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                end
+                i += 1
             end
             
             response_obj.resolved = true

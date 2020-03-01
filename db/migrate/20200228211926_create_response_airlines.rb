@@ -1,6 +1,6 @@
-class CreateResponeAirlines < ActiveRecord::Migration[6.0]
+class CreateResponseAirlines < ActiveRecord::Migration[6.0]
     def change
-        create_table :respone_airlines do |t|
+        create_table :response_airlines do |t|
             t.references :airline, null: false, foreign_key: true
             t.references :response, null: false, foreign_key: true
 

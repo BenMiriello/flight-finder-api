@@ -3,6 +3,7 @@ class Api::V1::ResponsesController < ApplicationController
 
     def show
         response = Response.find(params[:id])
+        # response = ResponseSerializer.new(response)
         render json: response
     end
     
