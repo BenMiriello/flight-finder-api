@@ -15,9 +15,9 @@ class Api::V1::QueriesController < ApplicationController
 
         searchParams = {
             "originLocationCode"=>"JFK", 
-            "destinationLocationCode"=>"LHR", 
-            "departureDate"=>"2020-10-01", 
-            "returnDate"=>"2020-10-10", 
+            "destinationLocationCode"=>"LAX", 
+            "departureDate"=>"2020-03-14", 
+            "returnDate"=>"2020-03-21", 
             "travelClass"=>"ANY",
             "adults"=>1, 
             "children"=>0, 
@@ -26,6 +26,7 @@ class Api::V1::QueriesController < ApplicationController
             "maxPrice"=>0,
             "max"=>50
         }
+
         origin = Airport.find_by :iata_code => searchParams["originLocationCode"]
         destination = Airport.find_by :iata_code => searchParams["destinationLocationCode"]
         searchParams[:origin_id] = origin.id
@@ -62,7 +63,12 @@ class Api::V1::QueriesController < ApplicationController
 
         # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
         Spawnling.new do
-            sample_response_file = File.open('amadeus/sample_response_1.rb', 'r')
+            
+            sample_response_file = File.open(
+                'amadeus/responses/Amadeus FO Resp JFK-LAX 2020-03-14 - 2020-03-21 2020-02-27 18:33:47 -0500',
+                'r'
+            )
+
             raw_response = sample_response_file.read
             sample_response_file.close
 
@@ -94,6 +100,7 @@ class Api::V1::QueriesController < ApplicationController
 
     def create
 
+        # byebug
         origin = Airport.find_by :iata_code => params[:searchParams]["originLocationCode"]
         destination = Airport.find_by :iata_code => params[:searchParams]["destinationLocationCode"]
         
@@ -120,30 +127,50 @@ class Api::V1::QueriesController < ApplicationController
         # Front end can GET the response and all FOs that have been created so far before this controller method is done running.
         # This means the front end can start serving the user FOs in +- 2 seconds instead of 10-30 seconds.
         # The response is :resolved => false until all FOs have been created.
-        response_obj = Response.create(
-            :query_id => query_obj.id,
-            :real_flight_offer_count => 0 
+
+        require 'amadeus'
+        require 'dotenv'
+        require 'oauth2'
+
+        response_obj = Response.create(:query_id => query_obj.id,:real_flight_offer_count => 0 )
+        
+        url = Url.generate(searchParams)
+        keys = Dotenv.load('.env')
+        client = OAuth2::Client.new(
+            keys["AMADEUS_CLIENT_ID"], 
+            keys["AMADEUS_CLIENT_SECRET"], 
+            site: 'https://test.api.amadeus.com', 
+            token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token'
         )
+        token = client.client_credentials.get_token.token
+
+        def get_response(url, token)
+            RestClient::Request.execute(:method => :get, :url => url, :headers => {:Authorization => "Bearer #{token}"})
+        rescue => e
+            e
+        end
+
+        byebug
         
-        render json: {:query => query_obj, :response => response_obj}.to_json
-        
+        raw_response = get_response(url, token)
+
+        if raw_response = "error"
+            render json: {error: "error"}
+        else
+            render json: {:query => query_obj, :response => response_obj}.to_json
+        end
+
+        # Write response to file for safe keeping
+        new_file = File.open(
+            "amadeus/responses/Amadeus FO Resp #{origin.iata_code}-#{destination.iata_code} #{searchParams[:departureDate]} - #{searchParams[:returnDate]} #{Time.now}",
+            "w"
+        )
+        new_file.write(raw_response)
+        new_file.close
+
         # byebug
         # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
         Spawnling.new do
-            url = Url.generate(query_obj)
-
-            token = 'OMWmQJEfBxF0QNEXoKtWVet7e3Pk'
-            
-            raw_response = RestClient::Request.execute(
-                :method => :get,
-                :url => url,
-                :headers => {:Authorization => "Bearer #{token}"}
-            )
-
-            # Write response to file for safe keeping
-            # new_file = File.open("amadeus/responses/query_id:#{query_obj.id}.rb", "w")
-            # new_file.write(raw_response)
-            # new_file.close
             
             parsed_response = JSON.parse(raw_response)
             

@@ -57,3 +57,7 @@ gem 'rest-client'
 gem 'spawnling', '~>2.1'
 
 gem 'will_paginate'
+
+gem 'amadeus'
+
+gem 'oauth2'

@@ -27,9 +27,9 @@ class Url
         #     url += "&travelClass=#{class_name}"
         # end
 
-        if query[:limit]
-            url += "&limit=#{query[:limit]}"
-        end
+        # if query[:limit]
+        url += "&max=5"
+        # end
         
         return url
     end
