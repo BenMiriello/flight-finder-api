@@ -13,6 +13,8 @@ class Api::V1::QueriesController < ApplicationController
     
     def initiate_test # test controller allows testing from a stored response
 
+        # byebug
+
         searchParams = {
             "originLocationCode"=>"JFK", 
             "destinationLocationCode"=>"LAX", 
@@ -30,7 +32,6 @@ class Api::V1::QueriesController < ApplicationController
         origin = Airport.find_by :iata_code => searchParams["originLocationCode"]
         destination = Airport.find_by :iata_code => searchParams["destinationLocationCode"]
         searchParams[:origin_id] = origin.id
-        # byebug
         searchParams[:destination_id] = destination.id
         if @user
             searchParams[:user_id] = @user.id
@@ -59,36 +60,48 @@ class Api::V1::QueriesController < ApplicationController
             :real_flight_offer_count => 0    
         )
 
-        render json: {:query => query_obj, :response => response_obj}.to_json
+        # byebug
+            
+        sample_response_file = File.open('amadeus/responses/sample_response_1.rb','r')
+
+        raw_response = sample_response_file.read
+        sample_response_file.close
+        
+        parsed_response = JSON.parse(raw_response)
+        
+        # "data" => an array of info that can be mapped into a flight offer object and associated models
+        data = parsed_response["data"]
+        # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
+        dictionaries = parsed_response["dictionaries"]
+        
+        # setting data.length allows front end to know how many FOs to expect in total
+        # byebug
+        response_obj.update :expected_flight_offer_count => data.length
+
+        # byebug
+
+        length = data.length
+
+        if length >= 11
+            i = 0
+            while i < 10 do 
+                ParseResponse.mapResponseToModels(response_obj, data[i], dictionaries)
+                response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
+                i += 1
+            end
+        else 
+            data.each do |datum| 
+                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
+            end
+        end
+
+        render json: {:query => query_obj, :response => ResponseSerializer.new(response_obj)}.to_json
 
         # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
         Spawnling.new do
-            
-            sample_response_file = File.open(
-                'amadeus/responses/Amadeus FO Resp JFK-LAX 2020-03-14 - 2020-03-21 2020-02-27 18:33:47 -0500',
-                'r'
-            )
-
-            raw_response = sample_response_file.read
-            sample_response_file.close
-
-            # # Write response to file for safe keeping
-            # new_file = File.open("amadeus/responses/query_id:#{query_obj.id}.rb", 'w')
-            # new_file.write(raw_response)
-            # new_file.close
-            
-            parsed_response = JSON.parse(raw_response)
-            
-            # "data" => an array of info that can be mapped into a flight offer object and associated models
-            data = parsed_response["data"]
-            # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
-            dictionaries = parsed_response["dictionaries"]
-            
-            # setting data.length allows front end to know how many FOs to expect in total
-            # byebug
-            response_obj.update :expected_flight_offer_count => data.length
-
             # FlightOffer objects are created with associated itineraries, segments, etc.
+            data.shift(10)
             data.each do |datum| 
                 ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
@@ -150,12 +163,12 @@ class Api::V1::QueriesController < ApplicationController
             e
         end
 
-        byebug
+        # byebug
         
         raw_response = get_response(url, token)
 
-        if raw_response = "error"
-            render json: {error: "error"}
+        if raw_response[0...3] != 200
+            render json: {:error => "error", :message => raw_response.message, :status_code => raw_response.message[0...3].to_i}.to_json
         else
             render json: {:query => query_obj, :response => response_obj}.to_json
         end

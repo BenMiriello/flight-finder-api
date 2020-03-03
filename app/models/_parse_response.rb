@@ -31,8 +31,11 @@ class ParseResponse
 
             # create Segments
             itinerary["segments"].each do |segment|
+
+                # byebug
                 airline = Airline.find_or_create_by :iata_code => segment["carrierCode"], :name => dictionaries["carriers"][segment["carrierCode"]]
-                operating_airline = Airline.find_or_create_by :iata_code => segment["operating"]["carrierCode"], :name => dictionaries["carriers"][segment["operatingCarrierCode"]]
+                operating_airline = Airline.find_or_create_by :iata_code => segment["operating"]["carrierCode"], :name => dictionaries["carriers"][segment["operating"]["carrierCode"]]
+                
                 origin = Airport.find_by :iata_code => segment["departure"]["iataCode"]
                 destination = Airport.find_by :iata_code => segment["arrival"]["iataCode"]
 
