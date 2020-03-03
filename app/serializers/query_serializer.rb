@@ -7,8 +7,7 @@ class QuerySerializer < ActiveModel::Serializer
     belongs_to :origin, :foreign_key => :origin_id, :class_name => 'Airport'
     
     has_one :response
-    # has_many :flight_offers, through: :response
-    
+
     def queryParams
         object = self.object
         return {
@@ -24,7 +23,9 @@ class QuerySerializer < ActiveModel::Serializer
             :maxPrice => object.maxPrice,
             :resolved => object.resolved,
             :origin => object.origin,
-            :destination => object.destination
+            :destination => object.destination,
+            :includedAirlineCodes => object.includedAirlineCodes,
+            :excludedAirlineCodes => object.excludedAirlineCodes
         }
     end
 

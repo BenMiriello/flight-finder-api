@@ -46,8 +46,6 @@ gem "active_model_serializers", "~> 0.10.10"
 
 # gem "faker", "~> 2.10"
 
-# gem "rest-client"
-
 gem 'httparty'
 
 gem "dotenv-rails"
@@ -57,3 +55,5 @@ gem 'kaminari'
 gem 'rest-client'
 
 gem 'spawnling', '~>2.1'
+
+gem 'will_paginate'

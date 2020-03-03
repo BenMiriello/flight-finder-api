@@ -10,8 +10,6 @@ class SegmentSerializer < ActiveModel::Serializer
     # belongs_to :destination, :foreign_key => :destination_id, :class_name => 'Airport'
 
     def airline
-        # byebug
-        # AirlineSerializer.new(self.object.airline)
         self.object.airline
     end
 
@@ -21,30 +19,6 @@ class SegmentSerializer < ActiveModel::Serializer
     end
 
     def origin
-
-        return Airport.find self.object.origin_id
-        # city = City.find airport.city_id
-        # country = Country.find city.country_id
-        
-        # return {
-        #     airport: airport, 
-        #     city: city, 
-        #     country: country
-        # }
-    end
-
-    def origin_city
-        airport = Airport.find self.object.origin_id
-        return City.find airport.city_id
-    end
-
-    def origin_country
-        Airport.find self.object.origin_id
-        city = City.find airport.city_id
-        return Country.find city.country_id
-    end
-
-    def destination
         airport = Airport.find self.object.origin_id
         city = City.find airport.city_id
         country = Country.find city.country_id
@@ -56,10 +30,29 @@ class SegmentSerializer < ActiveModel::Serializer
         }
     end
 
-    # airlineid
-    # operatingairlineid
-    # originid
-    # destinationid
+    def destination
+        airport = Airport.find self.object.destination_id
+        city = City.find airport.city_id
+        country = Country.find city.country_id
+        
+        return {
+            airport: airport, 
+            city: city, 
+            country: country
+        }
+    end
+
+
+    # def origin_city
+    #     airport = Airport.find self.object.origin_id
+    #     return City.find airport.city_id
+    # end
+
+    # def origin_country
+    #     Airport.find self.object.origin_id
+    #     city = City.find airport.city_id
+    #     return Country.find city.country_id
+    # end
   
 end
 

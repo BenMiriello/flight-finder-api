@@ -12,6 +12,8 @@ class CreateQueries < ActiveRecord::Migration[6.0]
             t.integer :adults
             t.integer :children
             t.integer :infants
+            t.string :includedAirlineCodes
+            t.string :excludedAirlineCodes
             t.boolean :nonStop
             t.integer :maxPrice
             t.integer :max

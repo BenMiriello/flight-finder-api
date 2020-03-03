@@ -109,6 +109,8 @@ ActiveRecord::Schema.define(version: 2020_02_28_211935) do
     t.integer "adults"
     t.integer "children"
     t.integer "infants"
+    t.string "includedAirlineCodes"
+    t.string "excludedAirlineCodes"
     t.boolean "nonStop"
     t.integer "maxPrice"
     t.integer "max"
