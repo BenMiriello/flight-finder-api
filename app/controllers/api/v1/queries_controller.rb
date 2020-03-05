@@ -85,13 +85,13 @@ class Api::V1::QueriesController < ApplicationController
         if length >= 11
             i = 0
             while i < 10 do 
-                ParseResponse.mapResponseToModels(response_obj, data[i], dictionaries)
+                ParseResponse.map_response_to_models(response_obj, data[i], dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
                 i += 1
             end
         else 
             data.each do |datum| 
-                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                ParseResponse.map_response_to_models(response_obj, datum, dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
             end
         end
@@ -103,7 +103,7 @@ class Api::V1::QueriesController < ApplicationController
             # FlightOffer objects are created with associated itineraries, segments, etc.
             data.shift(10)
             data.each do |datum| 
-                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                ParseResponse.map_response_to_models(response_obj, datum, dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
             end
             
@@ -196,13 +196,13 @@ class Api::V1::QueriesController < ApplicationController
         if length >= 11
             i = 0
             while i < 10 do 
-                ParseResponse.mapResponseToModels(response_obj, data[i], dictionaries)
+                ParseResponse.map_response_to_models(response_obj, data[i], dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
                 i += 1
             end
         else 
             data.each do |datum| 
-                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                ParseResponse.map_response_to_models(response_obj, datum, dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
             end
         end
@@ -214,7 +214,7 @@ class Api::V1::QueriesController < ApplicationController
             # FlightOffer objects are created with associated itineraries, segments, etc.
             data.shift(10)
             data.each do |datum| 
-                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                ParseResponse.map_response_to_models(response_obj, datum, dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
             end
             
@@ -241,7 +241,7 @@ class Api::V1::QueriesController < ApplicationController
 
     #     # FlightOffer objects are created with associated itineraries, segments, etc.
     #     data.each do |datum| 
-    #         ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+    #         ParseResponse.map_response_to_models(response_obj, datum, dictionaries)
     #         response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
     #     end
         

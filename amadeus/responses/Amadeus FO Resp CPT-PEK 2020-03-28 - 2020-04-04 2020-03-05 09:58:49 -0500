@@ -1,0 +1,1186 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=CPT&destinationLocationCode=PEK&departureDate=2020-03-28&returnDate=2020-04-04&adults=1&nonStop=false&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT21H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CPT",
+          "at" : "2020-03-28T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T09:30:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7312",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T11:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T05:50:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "748",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT12H30M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-03-29T10:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5900",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H15M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT21H55M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-04-04T19:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-04T23:20:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5903",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H40M",
+        "id" : "13",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-05T00:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T07:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "749",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT13H5M",
+        "id" : "14",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T09:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "CPT",
+          "at" : "2020-04-05T11:35:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7315",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H10M",
+        "id" : "15",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "625.11",
+      "base" : "353.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "625.11"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "CX" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "625.11",
+        "base" : "353.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "14",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "15",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT21H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CPT",
+          "at" : "2020-03-28T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T09:30:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7312",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T11:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T05:50:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "748",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT12H30M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-03-29T10:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5900",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H15M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT23H",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-04-04T18:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-04T22:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5993",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H50M",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-05T00:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T07:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "749",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT13H5M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T09:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "CPT",
+          "at" : "2020-04-05T11:35:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7315",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H10M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "625.11",
+      "base" : "353.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "625.11"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "CX" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "625.11",
+        "base" : "353.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT21H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CPT",
+          "at" : "2020-03-28T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T09:30:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7312",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T11:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T05:50:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "748",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT12H30M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-03-29T10:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5900",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H15M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT23H5M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-04-04T19:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-04T23:20:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5903",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H40M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-05T00:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T07:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "749",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT13H5M",
+        "id" : "8",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T10:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "CPT",
+          "at" : "2020-04-05T12:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7313",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H10M",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "625.11",
+      "base" : "353.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "625.11"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "CX" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "625.11",
+        "base" : "353.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT21H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CPT",
+          "at" : "2020-03-28T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T09:30:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7312",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T11:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T05:50:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "748",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT12H30M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-03-29T10:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5900",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H15M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT24H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-04-04T18:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-04T22:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5993",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H50M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-05T00:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T07:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "749",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT13H5M",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T10:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "CPT",
+          "at" : "2020-04-05T12:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7313",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H10M",
+        "id" : "12",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "625.11",
+      "base" : "353.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "625.11"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "CX" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "625.11",
+        "base" : "353.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT21H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CPT",
+          "at" : "2020-03-28T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T09:30:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7312",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-03-28T11:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T05:50:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "748",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT12H30M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-03-29T07:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-03-29T10:45:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "5900",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KA"
+        },
+        "duration" : "PT3H15M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT24H55M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "PEK",
+          "terminal" : "3",
+          "at" : "2020-04-04T16:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:40:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "331",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT4H",
+        "id" : "16",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "HKG",
+          "terminal" : "1",
+          "at" : "2020-04-05T00:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T07:25:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "749",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "CX"
+        },
+        "duration" : "PT13H5M",
+        "id" : "17",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JNB",
+          "terminal" : "B",
+          "at" : "2020-04-05T09:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "CPT",
+          "at" : "2020-04-05T11:35:00"
+        },
+        "carrierCode" : "CX",
+        "number" : "7315",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "duration" : "PT2H10M",
+        "id" : "18",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "625.11",
+      "base" : "353.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "625.11"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "CX" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "625.11",
+        "base" : "353.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "16",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "17",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      }, {
+        "segmentId" : "18",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VLARRZA8",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "weight" : 30,
+          "weightUnit" : "KG"
+        }
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "HKG" : {
+        "cityCode" : "HKG",
+        "countryCode" : "HK"
+      },
+      "CPT" : {
+        "cityCode" : "CPT",
+        "countryCode" : "ZA"
+      },
+      "PEK" : {
+        "cityCode" : "BJS",
+        "countryCode" : "CN"
+      },
+      "JNB" : {
+        "cityCode" : "JNB",
+        "countryCode" : "ZA"
+      }
+    },
+    "aircraft" : {
+      "333" : "AIRBUS INDUSTRIE A330-300",
+      "77W" : "BOEING 777-300ER",
+      "738" : "BOEING 737-800"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "CX" : "CATHAY PACIFIC",
+      "KA" : "CATHAY DRAGON"
+    }
+  }
+}
