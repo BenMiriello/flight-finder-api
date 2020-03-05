@@ -1,0 +1,597 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=CDG&departureDate=2020-03-28&returnDate=2020-04-04&adults=1&nonStop=false&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT2H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-03-28T15:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-03-28T17:30:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "324",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H10M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT2H",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-04-04T06:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T08:25:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "317",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "146.10",
+      "base" : "29.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "146.10",
+      "additionalServices" : [ {
+        "amount" : "50.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AZ" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "146.10",
+        "base" : "29.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "FRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "F",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT2H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-03-28T15:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-03-28T17:30:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "324",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H10M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT2H5M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-04-04T11:10:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T13:15:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "319",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H5M",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "146.10",
+      "base" : "29.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "146.10",
+      "additionalServices" : [ {
+        "amount" : "50.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AZ" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "146.10",
+        "base" : "29.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "FRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "F",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT2H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-03-28T15:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-03-28T17:30:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "324",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H10M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT2H5M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-04-04T13:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T15:30:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "333",
+        "aircraft" : {
+          "code" : "32S"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H5M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "146.10",
+      "base" : "29.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "146.10",
+      "additionalServices" : [ {
+        "amount" : "50.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AZ" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "146.10",
+        "base" : "29.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "FRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "F",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT2H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-03-28T15:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-03-28T17:30:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "324",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H10M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT2H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-04-04T18:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:25:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "325",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H10M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "146.10",
+      "base" : "29.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "146.10",
+      "additionalServices" : [ {
+        "amount" : "50.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AZ" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "146.10",
+        "base" : "29.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "FRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "F",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-28",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT2H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-03-28T10:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-03-28T12:35:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "318",
+        "aircraft" : {
+          "code" : "32S"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H15M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT2H",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "2F",
+          "at" : "2020-04-04T06:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T08:25:00"
+        },
+        "carrierCode" : "AZ",
+        "number" : "317",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "AZ"
+        },
+        "duration" : "PT2H",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "146.10",
+      "base" : "29.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "146.10",
+      "additionalServices" : [ {
+        "amount" : "50.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AZ" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "146.10",
+        "base" : "29.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "FRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "F",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XRLG8C1",
+        "brandedFare" : "ECOLIGHT",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "FCO" : {
+        "cityCode" : "ROM",
+        "countryCode" : "IT"
+      },
+      "CDG" : {
+        "cityCode" : "PAR",
+        "countryCode" : "FR"
+      }
+    },
+    "aircraft" : {
+      "320" : "AIRBUS INDUSTRIE A320-100/200",
+      "321" : "AIRBUS INDUSTRIE A321",
+      "32S" : "AIRBUS INDUSTRIE A318/A319/A320/A321"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "AZ" : "ALITALIA S.P.A. IN A.S"
+    }
+  }
+}

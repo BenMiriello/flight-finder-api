@@ -1,0 +1,916 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=FCO&destinationLocationCode=CDG&departureDate=2020-04-04&returnDate=2020-04-11&adults=1&nonStop=false&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 5,
+    "itineraries" : [ {
+      "duration" : "PT4H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T15:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T17:15:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "1869",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H30M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T19:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:35:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "2236",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H35M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT4H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-11T14:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-11T16:00:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "639",
+        "aircraft" : {
+          "code" : "221"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H15M",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-11T17:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-11T19:20:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "1732",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H35M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "152.76",
+      "base" : "24.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "152.76",
+      "additionalServices" : [ {
+        "amount" : "30.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "LH" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "152.76",
+        "base" : "24.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT4H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T15:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T17:15:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "1869",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H30M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T19:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:35:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "2236",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H35M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT12H10M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-11T20:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-11T21:55:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "645",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H15M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-12T07:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-12T08:50:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "1726",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H30M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "152.76",
+      "base" : "24.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "152.76",
+      "additionalServices" : [ {
+        "amount" : "30.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "LH" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "152.76",
+        "base" : "24.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT4H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T15:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T17:15:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "1869",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H30M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T19:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:35:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "2236",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H35M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT14H5M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-11T18:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-11T19:55:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "657",
+        "aircraft" : {
+          "code" : "221"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H10M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-12T07:20:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-12T08:50:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "1726",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H30M",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "152.76",
+      "base" : "24.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "152.76",
+      "additionalServices" : [ {
+        "amount" : "30.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "LH" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "152.76",
+        "base" : "24.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT4H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T15:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T17:15:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "1869",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H30M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T19:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:35:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "2236",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H35M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT17H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-11T20:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-11T21:55:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "645",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H15M",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-12T12:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-12T14:15:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "1736",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H35M",
+        "id" : "12",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "152.76",
+      "base" : "24.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "152.76",
+      "additionalServices" : [ {
+        "amount" : "30.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "LH" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "152.76",
+        "base" : "24.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT4H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-04T15:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T17:15:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "1869",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H30M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MUC",
+          "terminal" : "2",
+          "at" : "2020-04-04T19:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-04T20:35:00"
+        },
+        "carrierCode" : "LH",
+        "number" : "2236",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LH"
+        },
+        "duration" : "PT1H35M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT19H30M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CDG",
+          "terminal" : "1",
+          "at" : "2020-04-11T18:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-11T19:55:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "657",
+        "aircraft" : {
+          "code" : "221"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H10M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ZRH",
+          "at" : "2020-04-12T12:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "FCO",
+          "terminal" : "1",
+          "at" : "2020-04-12T14:15:00"
+        },
+        "carrierCode" : "LX",
+        "number" : "1736",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "LX"
+        },
+        "duration" : "PT1H35M",
+        "id" : "8",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "152.76",
+      "base" : "24.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "152.76",
+      "additionalServices" : [ {
+        "amount" : "30.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "LH" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "152.76",
+        "base" : "24.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "K03LGTE3",
+        "brandedFare" : "LIGHT",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "ZRH" : {
+        "cityCode" : "ZRH",
+        "countryCode" : "CH"
+      },
+      "FCO" : {
+        "cityCode" : "ROM",
+        "countryCode" : "IT"
+      },
+      "CDG" : {
+        "cityCode" : "PAR",
+        "countryCode" : "FR"
+      },
+      "MUC" : {
+        "cityCode" : "MUC",
+        "countryCode" : "DE"
+      }
+    },
+    "aircraft" : {
+      "320" : "AIRBUS INDUSTRIE A320-100/200",
+      "221" : "AIRBUS  A220-100",
+      "321" : "AIRBUS INDUSTRIE A321"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "LH" : "LUFTHANSA",
+      "LX" : "SWISS INTERNATIONAL AIR LINES"
+    }
+  }
+}

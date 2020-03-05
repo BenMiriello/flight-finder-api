@@ -123,7 +123,7 @@ class Api::V1::QueriesController < ApplicationController
         searchParams[:user_id] = @user.id
         searchParams[:departureDate] = searchParams[:departureDate][0...-14]
         searchParams[:returnDate] = searchParams[:returnDate][0...-14]
-        searchParams[:limit] = 50
+        # searchParams[:max] = 250
 
         # Query object stores search info. Referenced when user makes the same search again.
         query_obj = Query.create(searchParams.permit(:originLocationCode, :destinationLocationCode, :departureDate, :returnDate, :travelClass, :adults, :children, :infants, :nonStop, :maxPrice, :origin_id, :destination_id, :user_id))
@@ -167,11 +167,11 @@ class Api::V1::QueriesController < ApplicationController
         
         raw_response = get_response(url, token)
 
-        if raw_response[0...3] != 200
-            render json: {:error => "error", :message => raw_response.message, :status_code => raw_response.message[0...3].to_i}.to_json
-        else
-            render json: {:query => query_obj, :response => response_obj}.to_json
-        end
+        # if raw_response[0...3] != 200
+        #     render json: {:error => "error", :message => raw_response.message, :status_code => raw_response.message[0...3].to_i}.to_json
+        # else
+            # render json: {:query => query_obj, :response => response_obj}.to_json
+        # end
 
         # Write response to file for safe keeping
         new_file = File.open(
@@ -181,31 +181,72 @@ class Api::V1::QueriesController < ApplicationController
         new_file.write(raw_response)
         new_file.close
 
-        # byebug
+        parsed_response = JSON.parse(raw_response)
+        
+        # "data" => an array of info that can be mapped into a flight offer object and associated models
+        data = parsed_response["data"]
+        # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
+        dictionaries = parsed_response["dictionaries"]
+        
+        # setting data.length allows front end to know how many FOs to expect in total
+        response_obj.update :expected_flight_offer_count => data.length
+
+        length = data.length
+
+        if length >= 11
+            i = 0
+            while i < 10 do 
+                ParseResponse.mapResponseToModels(response_obj, data[i], dictionaries)
+                response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
+                i += 1
+            end
+        else 
+            data.each do |datum| 
+                ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+                response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
+            end
+        end
+
+        render json: {:query => query_obj, :response => ResponseSerializer.new(response_obj)}.to_json
+
         # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
         Spawnling.new do
-            
-            parsed_response = JSON.parse(raw_response)
-            
-            # "data" => an array of info that can be mapped into a flight offer object and associated models
-            data = parsed_response["data"]
-            # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
-            dictionaries = parsed_response["dictionaries"]
-            
-            # setting data.length allows front end to know how many FOs to expect in total
-            response_obj.update :expected_flight_offer_count => data.length
-
-            # byebug
-
             # FlightOffer objects are created with associated itineraries, segments, etc.
+            data.shift(10)
             data.each do |datum| 
                 ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
                 response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
             end
             
             response_obj.update :resolved => true
-        end
+        end        
+        
     end
+
+    # # byebug
+    # # Spawnling allows the controller to send back the line above and then run the following commands on a separate thread.
+    # Spawnling.new do
+        
+    #     parsed_response = JSON.parse(raw_response)
+        
+    #     # "data" => an array of info that can be mapped into a flight offer object and associated models
+    #     data = parsed_response["data"]
+    #     # dictionaries is referenced by other parts of each datum to give full names for airlines, airports, aircraft.
+    #     dictionaries = parsed_response["dictionaries"]
+        
+    #     # setting data.length allows front end to know how many FOs to expect in total
+    #     response_obj.update :expected_flight_offer_count => data.length
+
+    #     # byebug
+
+    #     # FlightOffer objects are created with associated itineraries, segments, etc.
+    #     data.each do |datum| 
+    #         ParseResponse.mapResponseToModels(response_obj, datum, dictionaries)
+    #         response_obj.update :real_flight_offer_count => response_obj.real_flight_offer_count + 1
+    #     end
+        
+    #     response_obj.update :resolved => true
+    # end
     
     def show
         render json: {message: "This endpoint has not been built yet."}

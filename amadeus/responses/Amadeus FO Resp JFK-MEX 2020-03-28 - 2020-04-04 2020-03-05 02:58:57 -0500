@@ -1,0 +1,965 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=JFK&destinationLocationCode=MEX&departureDate=2020-03-28&returnDate=2020-04-04&adults=2&nonStop=false&children=1&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT5H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-03-28T21:30:00"
+        },
+        "carrierCode" : "4O",
+        "number" : "2997",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "4O"
+        },
+        "duration" : "PT5H50M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT5H",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-04T16:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-04-04T23:40:00"
+        },
+        "carrierCode" : "4O",
+        "number" : "2992",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "4O"
+        },
+        "duration" : "PT5H",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1324.65",
+      "base" : "786.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1324.65"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "4O" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "441.55",
+        "base" : "262.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNRTLL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VHOO",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "441.55",
+        "base" : "262.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNRTLL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VHOO",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    }, {
+      "travelerId" : "3",
+      "fareOption" : "STANDARD",
+      "travelerType" : "CHILD",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "441.55",
+        "base" : "262.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNRTLLCH",
+        "class" : "N"
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "VHOOCH",
+        "class" : "V"
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 5,
+    "itineraries" : [ {
+      "duration" : "PT5H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-03-28T21:30:00"
+        },
+        "carrierCode" : "4O",
+        "number" : "2997",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "4O"
+        },
+        "duration" : "PT5H50M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT5H",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-04T09:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-04-04T16:30:00"
+        },
+        "carrierCode" : "4O",
+        "number" : "2996",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "4O"
+        },
+        "duration" : "PT5H",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1405.65",
+      "base" : "867.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1405.65"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "4O" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "468.55",
+        "base" : "289.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNRTLL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LHOO",
+        "class" : "L",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "468.55",
+        "base" : "289.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNRTLL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LHOO",
+        "class" : "L",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    }, {
+      "travelerId" : "3",
+      "fareOption" : "STANDARD",
+      "travelerType" : "CHILD",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "468.55",
+        "base" : "289.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNRTLLCH",
+        "class" : "N"
+      }, {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LHOOCH",
+        "class" : "L"
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-05",
+    "numberOfBookableSeats" : 6,
+    "itineraries" : [ {
+      "duration" : "PT5H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-28T16:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:35:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "409",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT5H35M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT15H30M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-04-04T22:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "MTY",
+          "terminal" : "B",
+          "at" : "2020-04-04T23:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "964",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT1H50M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MTY",
+          "terminal" : "B",
+          "at" : "2020-04-05T09:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-04-05T14:30:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "414",
+        "aircraft" : {
+          "code" : "E90"
+        },
+        "duration" : "PT4H15M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1485.03",
+      "base" : "1056.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1485.03",
+      "additionalServices" : [ {
+        "amount" : "60.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    }, {
+      "travelerId" : "3",
+      "fareOption" : "STANDARD",
+      "travelerType" : "CHILD",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-05",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT5H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-28T16:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:35:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "409",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT5H35M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT17H30M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-04-04T20:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "MTY",
+          "terminal" : "B",
+          "at" : "2020-04-04T21:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "956",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT1H45M",
+        "id" : "8",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MTY",
+          "terminal" : "B",
+          "at" : "2020-04-05T09:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-04-05T14:30:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "414",
+        "aircraft" : {
+          "code" : "E90"
+        },
+        "duration" : "PT4H15M",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1485.03",
+      "base" : "1056.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1485.03",
+      "additionalServices" : [ {
+        "amount" : "60.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    }, {
+      "travelerId" : "3",
+      "fareOption" : "STANDARD",
+      "travelerType" : "CHILD",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-05",
+    "numberOfBookableSeats" : 6,
+    "itineraries" : [ {
+      "duration" : "PT5H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-28T18:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T21:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "403",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT5H50M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT15H30M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-04-04T22:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "MTY",
+          "terminal" : "B",
+          "at" : "2020-04-04T23:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "964",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT1H50M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MTY",
+          "terminal" : "B",
+          "at" : "2020-04-05T09:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-04-05T14:30:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "414",
+        "aircraft" : {
+          "code" : "E90"
+        },
+        "duration" : "PT4H15M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1485.03",
+      "base" : "1056.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1485.03",
+      "additionalServices" : [ {
+        "amount" : "60.00",
+        "type" : "CHECKED_BAGS"
+      } ]
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : false
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V",
+        "includedCheckedBags" : {
+          "quantity" : 0
+        }
+      } ]
+    }, {
+      "travelerId" : "3",
+      "fareOption" : "STANDARD",
+      "travelerType" : "CHILD",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "495.01",
+        "base" : "352.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NNNL6SBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "LNNL6NBM",
+        "brandedFare" : "BG",
+        "class" : "V"
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "MEX" : {
+        "cityCode" : "MEX",
+        "countryCode" : "MX"
+      },
+      "MTY" : {
+        "cityCode" : "MTY",
+        "countryCode" : "MX"
+      },
+      "JFK" : {
+        "cityCode" : "NYC",
+        "countryCode" : "US"
+      }
+    },
+    "aircraft" : {
+      "320" : "AIRBUS INDUSTRIE A320-100/200",
+      "789" : "BOEING 787-9",
+      "7S8" : "BOEING 737-800 SCIMITAR WINGLETS",
+      "E90" : "EMBRAER 190"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "4O" : "INTERJET",
+      "AM" : "AEROMEXICO"
+    }
+  }
+}
