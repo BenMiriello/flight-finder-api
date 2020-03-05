@@ -1,0 +1,866 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=MEX&destinationLocationCode=DXB&departureDate=2020-04-18&returnDate=2020-04-25&adults=1&nonStop=false&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT19H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-18T19:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DXB",
+          "terminal" : "3",
+          "at" : "2020-04-20T00:15:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "256",
+        "aircraft" : {
+          "code" : "77L"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT19H35M",
+        "stops" : [ {
+          "iataCode" : "BCN",
+          "duration" : "PT1H45M",
+          "arrivalAt" : "2020-04-19T13:45:00",
+          "departureAt" : "2020-04-19T15:30:00"
+        } ],
+        "id" : "3",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT21H40M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DXB",
+          "terminal" : "3",
+          "at" : "2020-04-25T03:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-25T16:05:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "255",
+        "aircraft" : {
+          "code" : "77L"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT21H40M",
+        "stops" : [ {
+          "iataCode" : "BCN",
+          "duration" : "PT2H",
+          "arrivalAt" : "2020-04-25T08:35:00",
+          "departureAt" : "2020-04-25T10:35:00"
+        } ],
+        "id" : "8",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "982.11",
+      "base" : "368.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "982.11"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "EK" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "982.11",
+        "base" : "368.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-05",
+    "numberOfBookableSeats" : 4,
+    "itineraries" : [ {
+      "duration" : "PT33H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "at" : "2020-04-18T05:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-19T05:25:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "181",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT15H55M",
+        "stops" : [ {
+          "iataCode" : "CUN",
+          "duration" : "PT1H30M",
+          "arrivalAt" : "2020-04-18T07:50:00",
+          "departureAt" : "2020-04-18T09:20:00"
+        } ],
+        "id" : "4",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-19T18:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "DXB",
+          "terminal" : "1",
+          "at" : "2020-04-20T00:20:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "760",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT4H35M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT50H59M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DXB",
+          "terminal" : "1",
+          "at" : "2020-04-25T07:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-25T11:10:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "763",
+        "aircraft" : {
+          "code" : "359"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT4H45M",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-26T10:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "PTY",
+          "at" : "2020-04-26T18:45:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "800",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT16H40M",
+        "stops" : [ {
+          "iataCode" : "BOG",
+          "duration" : "PT1H30M",
+          "arrivalAt" : "2020-04-26T15:30:00",
+          "departureAt" : "2020-04-26T17:00:00"
+        } ],
+        "id" : "12",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "PTY",
+          "at" : "2020-04-26T21:27:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-04-27T01:24:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "9596",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "operating" : {
+          "carrierCode" : "CM"
+        },
+        "duration" : "PT3H57M",
+        "id" : "13",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1087.04",
+      "base" : "621.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1087.04"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "TK" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1087.04",
+        "base" : "621.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-05",
+    "numberOfBookableSeats" : 4,
+    "itineraries" : [ {
+      "duration" : "PT39H20M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "at" : "2020-04-18T05:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-19T05:25:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "181",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT15H55M",
+        "stops" : [ {
+          "iataCode" : "CUN",
+          "duration" : "PT1H30M",
+          "arrivalAt" : "2020-04-18T07:50:00",
+          "departureAt" : "2020-04-18T09:20:00"
+        } ],
+        "id" : "1",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-20T00:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "DXB",
+          "terminal" : "1",
+          "at" : "2020-04-20T05:50:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "762",
+        "aircraft" : {
+          "code" : "359"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT4H35M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT50H59M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DXB",
+          "terminal" : "1",
+          "at" : "2020-04-25T07:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-25T11:10:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "763",
+        "aircraft" : {
+          "code" : "359"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT4H45M",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "IST",
+          "at" : "2020-04-26T10:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "PTY",
+          "at" : "2020-04-26T18:45:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "800",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "TK"
+        },
+        "duration" : "PT16H40M",
+        "stops" : [ {
+          "iataCode" : "BOG",
+          "duration" : "PT1H30M",
+          "arrivalAt" : "2020-04-26T15:30:00",
+          "departureAt" : "2020-04-26T17:00:00"
+        } ],
+        "id" : "12",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "PTY",
+          "at" : "2020-04-26T21:27:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-04-27T01:24:00"
+        },
+        "carrierCode" : "TK",
+        "number" : "9596",
+        "aircraft" : {
+          "code" : "738"
+        },
+        "operating" : {
+          "carrierCode" : "CM"
+        },
+        "duration" : "PT3H57M",
+        "id" : "13",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1087.04",
+      "base" : "621.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1087.04"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "TK" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1087.04",
+        "base" : "621.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "UV3XPX",
+        "class" : "U",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT19H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-18T19:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DXB",
+          "terminal" : "3",
+          "at" : "2020-04-20T00:15:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "256",
+        "aircraft" : {
+          "code" : "77L"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT19H35M",
+        "stops" : [ {
+          "iataCode" : "BCN",
+          "duration" : "PT1H45M",
+          "arrivalAt" : "2020-04-19T13:45:00",
+          "departureAt" : "2020-04-19T15:30:00"
+        } ],
+        "id" : "3",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT33H20M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DXB",
+          "terminal" : "3",
+          "at" : "2020-04-25T15:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-04-25T20:55:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "187",
+        "aircraft" : {
+          "code" : "77W"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT7H10M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-04-26T10:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-26T16:05:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "255",
+        "aircraft" : {
+          "code" : "77L"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT12H30M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1121.44",
+      "base" : "368.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1121.44"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "EK" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1121.44",
+        "base" : "368.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT19H35M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-18T19:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DXB",
+          "terminal" : "3",
+          "at" : "2020-04-20T00:15:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "256",
+        "aircraft" : {
+          "code" : "77L"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT19H35M",
+        "stops" : [ {
+          "iataCode" : "BCN",
+          "duration" : "PT1H45M",
+          "arrivalAt" : "2020-04-19T13:45:00",
+          "departureAt" : "2020-04-19T15:30:00"
+        } ],
+        "id" : "3",
+        "numberOfStops" : 1,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT40H50M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DXB",
+          "terminal" : "3",
+          "at" : "2020-04-25T08:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-04-25T13:25:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "185",
+        "aircraft" : {
+          "code" : "388"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT7H10M",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-04-26T10:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "1",
+          "at" : "2020-04-26T16:05:00"
+        },
+        "carrierCode" : "EK",
+        "number" : "255",
+        "aircraft" : {
+          "code" : "77L"
+        },
+        "operating" : {
+          "carrierCode" : "EK"
+        },
+        "duration" : "PT12H30M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1121.44",
+      "base" : "368.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1121.44"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "EK" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1121.44",
+        "base" : "368.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "XLWSRMX1",
+        "class" : "X",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "MEX" : {
+        "cityCode" : "MEX",
+        "countryCode" : "MX"
+      },
+      "PTY" : {
+        "cityCode" : "PTY",
+        "countryCode" : "PA"
+      },
+      "IST" : {
+        "cityCode" : "IST",
+        "countryCode" : "TR"
+      },
+      "BCN" : {
+        "cityCode" : "BCN",
+        "countryCode" : "ES"
+      },
+      "DXB" : {
+        "cityCode" : "DXB",
+        "countryCode" : "AE"
+      }
+    },
+    "aircraft" : {
+      "388" : "AIRBUS INDUSTRIE A380-800",
+      "77W" : "BOEING 777-300ER",
+      "359" : "AIRBUS INDUSTRIE A350-900",
+      "789" : "BOEING 787-9",
+      "77L" : "BOEING 777-200LR",
+      "738" : "BOEING 737-800"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "EK" : "EMIRATES",
+      "TK" : "TURKISH AIRLINES",
+      "CM" : "COPA AIRLINES"
+    }
+  }
+}

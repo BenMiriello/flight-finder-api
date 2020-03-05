@@ -1,0 +1,1222 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=UIO&destinationLocationCode=SVO&departureDate=2020-03-21&returnDate=2020-03-28&adults=1&nonStop=false&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT26H4M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-21T10:01:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T13:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "685",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H44M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T17:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-22T11:40:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "37",
+        "aircraft" : {
+          "code" : "788"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT10H55M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-22T13:15:00"
+        },
+        "arrival" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-22T20:05:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7024",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H50M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT29H21M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-28T09:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T12:15:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7047",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H40M",
+        "id" : "16",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T13:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "38",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT13H10M",
+        "id" : "17",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-29T01:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-29T06:56:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "684",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H31M",
+        "id" : "18",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1159.05",
+      "base" : "905.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1159.05"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1159.05",
+        "base" : "905.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "16",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "17",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "18",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT28H9M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-21T10:01:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T13:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "685",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H44M",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T17:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-22T11:40:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "37",
+        "aircraft" : {
+          "code" : "788"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT10H55M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-22T15:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-22T22:10:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7032",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H35M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT29H21M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-28T09:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T12:15:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7047",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H40M",
+        "id" : "16",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T13:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "38",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT13H10M",
+        "id" : "17",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-29T01:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-29T06:56:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "684",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H31M",
+        "id" : "18",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1159.05",
+      "base" : "905.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1159.05"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1159.05",
+        "base" : "905.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "16",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "17",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "18",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT29H44M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-21T10:01:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T13:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "685",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H44M",
+        "id" : "13",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T17:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-22T11:40:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "37",
+        "aircraft" : {
+          "code" : "788"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT10H55M",
+        "id" : "14",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-22T17:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-22T23:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7029",
+        "aircraft" : {
+          "code" : "320"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H40M",
+        "id" : "15",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT29H21M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-28T09:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T12:15:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7047",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H40M",
+        "id" : "16",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T13:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "38",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT13H10M",
+        "id" : "17",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-29T01:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-29T06:56:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "684",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H31M",
+        "id" : "18",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1159.05",
+      "base" : "905.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1159.05"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1159.05",
+        "base" : "905.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "14",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "15",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "ELNH6XCM",
+        "brandedFare" : "SL",
+        "class" : "E",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "16",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "17",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "18",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT37H9M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-21T10:01:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T13:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "685",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H44M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T18:45:00"
+        },
+        "arrival" : {
+          "iataCode" : "MAD",
+          "terminal" : "1",
+          "at" : "2020-03-22T12:30:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "1",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT10H45M",
+        "id" : "8",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MAD",
+          "terminal" : "1",
+          "at" : "2020-03-23T00:10:00"
+        },
+        "arrival" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-23T07:10:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7037",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT5H",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT29H21M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-28T09:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T12:15:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7047",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H40M",
+        "id" : "16",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T13:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "38",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT13H10M",
+        "id" : "17",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-29T01:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-29T06:56:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "684",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H31M",
+        "id" : "18",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1291.41",
+      "base" : "1021.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1291.41"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1291.41",
+        "base" : "1021.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "TLNN6XCI",
+        "brandedFare" : "SL",
+        "class" : "T",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "TLNN6XCI",
+        "brandedFare" : "SL",
+        "class" : "T",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "TLNN6XCI",
+        "brandedFare" : "SL",
+        "class" : "T",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "16",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "17",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "18",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-07",
+    "numberOfBookableSeats" : 7,
+    "itineraries" : [ {
+      "duration" : "PT37H9M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-21T10:01:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T13:45:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "685",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H44M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-21T23:55:00"
+        },
+        "arrival" : {
+          "iataCode" : "MAD",
+          "terminal" : "1",
+          "at" : "2020-03-22T17:25:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "21",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT10H30M",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MAD",
+          "terminal" : "1",
+          "at" : "2020-03-23T00:10:00"
+        },
+        "arrival" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-23T07:10:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7037",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT5H",
+        "id" : "12",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT29H21M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "SVO",
+          "terminal" : "D",
+          "at" : "2020-03-28T09:35:00"
+        },
+        "arrival" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T12:15:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "7047",
+        "aircraft" : {
+          "code" : "32B"
+        },
+        "operating" : {
+          "carrierCode" : "SU"
+        },
+        "duration" : "PT4H40M",
+        "id" : "16",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "BCN",
+          "terminal" : "1",
+          "at" : "2020-03-28T13:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:50:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "38",
+        "aircraft" : {
+          "code" : "789"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT13H10M",
+        "id" : "17",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "MEX",
+          "terminal" : "2",
+          "at" : "2020-03-29T01:25:00"
+        },
+        "arrival" : {
+          "iataCode" : "UIO",
+          "at" : "2020-03-29T06:56:00"
+        },
+        "carrierCode" : "AM",
+        "number" : "684",
+        "aircraft" : {
+          "code" : "7S8"
+        },
+        "operating" : {
+          "carrierCode" : "AM"
+        },
+        "duration" : "PT4H31M",
+        "id" : "18",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "1291.41",
+      "base" : "1021.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "1291.41"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "AM" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1291.41",
+        "base" : "1021.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "TLNN6XCI",
+        "brandedFare" : "SL",
+        "class" : "T",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "TLNN6XCI",
+        "brandedFare" : "SL",
+        "class" : "T",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "TLNN6XCI",
+        "brandedFare" : "SL",
+        "class" : "T",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "16",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "17",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      }, {
+        "segmentId" : "18",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "NKNK6XCM",
+        "brandedFare" : "SL",
+        "class" : "N",
+        "includedCheckedBags" : {
+          "quantity" : 1
+        }
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "MAD" : {
+        "cityCode" : "MAD",
+        "countryCode" : "ES"
+      },
+      "MEX" : {
+        "cityCode" : "MEX",
+        "countryCode" : "MX"
+      },
+      "UIO" : {
+        "cityCode" : "UIO",
+        "countryCode" : "EC"
+      },
+      "BCN" : {
+        "cityCode" : "BCN",
+        "countryCode" : "ES"
+      },
+      "SVO" : {
+        "cityCode" : "MOW",
+        "countryCode" : "RU"
+      }
+    },
+    "aircraft" : {
+      "320" : "AIRBUS INDUSTRIE A320-100/200",
+      "32B" : "AIRBUS INDUSTRIE A321 SHARKLETS",
+      "788" : "BOEING 787-8",
+      "789" : "BOEING 787-9",
+      "7S8" : "BOEING 737-800 SCIMITAR WINGLETS"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "SU" : "AEROFLOT",
+      "AM" : "AEROMEXICO"
+    }
+  }
+}

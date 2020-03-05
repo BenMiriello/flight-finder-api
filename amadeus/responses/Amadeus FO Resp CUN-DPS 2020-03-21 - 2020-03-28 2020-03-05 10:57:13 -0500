@@ -1,0 +1,1557 @@
+{
+  "meta" : {
+    "count" : 5,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=CUN&destinationLocationCode=DPS&departureDate=2020-03-21&returnDate=2020-03-28&adults=2&nonStop=false&max=5"
+    }
+  },
+  "data" : [ {
+    "type" : "flight-offer",
+    "id" : "1",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 2,
+    "itineraries" : [ {
+      "duration" : "PT67H55M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-21T15:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "LAX",
+          "terminal" : "2",
+          "at" : "2020-03-21T18:34:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "309",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT5H34M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "LAX",
+          "terminal" : "B",
+          "at" : "2020-03-22T11:50:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T17:40:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9045",
+        "aircraft" : {
+          "code" : "388"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT13H50M",
+        "id" : "8",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-24T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-24T23:55:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7872",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT48H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-28T01:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T09:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7873",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T20:30:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9014",
+        "aircraft" : {
+          "code" : "74H"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT14H",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-29T09:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-29T12:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "438",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT4H20M",
+        "id" : "12",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "2525.58",
+      "base" : "1882.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "2525.58"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "DL" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1262.79",
+        "base" : "941.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1262.79",
+        "base" : "941.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "2",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 2,
+    "itineraries" : [ {
+      "duration" : "PT67H55M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-21T15:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "LAX",
+          "terminal" : "2",
+          "at" : "2020-03-21T18:34:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "309",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT5H34M",
+        "id" : "7",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "LAX",
+          "terminal" : "B",
+          "at" : "2020-03-22T11:50:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T17:40:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9045",
+        "aircraft" : {
+          "code" : "388"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT13H50M",
+        "id" : "8",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-24T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-24T23:55:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7872",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "9",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT50H40M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-28T01:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T09:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7873",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "13",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T20:30:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9014",
+        "aircraft" : {
+          "code" : "74H"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT14H",
+        "id" : "14",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-29T11:34:00"
+        },
+        "arrival" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-29T14:45:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "429",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT4H11M",
+        "id" : "15",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "2525.58",
+      "base" : "1882.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "2525.58"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "DL" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1262.79",
+        "base" : "941.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "14",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "15",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1262.79",
+        "base" : "941.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "7",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "8",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "9",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "KLWA3NMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "K",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "14",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "15",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "3",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 2,
+    "itineraries" : [ {
+      "duration" : "PT48H45M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-21T10:10:00"
+        },
+        "arrival" : {
+          "iataCode" : "ATL",
+          "terminal" : "I",
+          "at" : "2020-03-21T13:52:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "530",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT2H42M",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ATL",
+          "terminal" : "I",
+          "at" : "2020-03-22T00:50:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T04:45:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "27",
+        "aircraft" : {
+          "code" : "359"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT14H55M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-23T23:55:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7872",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT48H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-28T01:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T09:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7873",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T20:30:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9014",
+        "aircraft" : {
+          "code" : "74H"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT14H",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-29T09:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-29T12:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "438",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT4H20M",
+        "id" : "12",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "2706.54",
+      "base" : "2056.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "2706.54"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "DL" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1353.27",
+        "base" : "1028.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1353.27",
+        "base" : "1028.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "4",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 2,
+    "itineraries" : [ {
+      "duration" : "PT48H45M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-21T10:10:00"
+        },
+        "arrival" : {
+          "iataCode" : "ATL",
+          "terminal" : "I",
+          "at" : "2020-03-21T13:52:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "530",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT2H42M",
+        "id" : "4",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ATL",
+          "terminal" : "I",
+          "at" : "2020-03-22T00:50:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T04:45:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "27",
+        "aircraft" : {
+          "code" : "359"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT14H55M",
+        "id" : "5",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-23T23:55:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7872",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "6",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT50H40M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-28T01:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T09:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7873",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "13",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T20:30:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9014",
+        "aircraft" : {
+          "code" : "74H"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT14H",
+        "id" : "14",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-29T11:34:00"
+        },
+        "arrival" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-29T14:45:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "429",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT4H11M",
+        "id" : "15",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "2706.54",
+      "base" : "2056.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "2706.54"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "DL" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1353.27",
+        "base" : "1028.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "14",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "15",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1353.27",
+        "base" : "1028.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "4",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "5",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "6",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "MLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "M",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "13",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "14",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "15",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  }, {
+    "type" : "flight-offer",
+    "id" : "5",
+    "source" : "GDS",
+    "instantTicketingRequired" : false,
+    "nonHomogeneous" : false,
+    "oneWay" : false,
+    "lastTicketingDate" : "2020-03-06",
+    "numberOfBookableSeats" : 9,
+    "itineraries" : [ {
+      "duration" : "PT46H23M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-21T12:32:00"
+        },
+        "arrival" : {
+          "iataCode" : "ATL",
+          "terminal" : "I",
+          "at" : "2020-03-21T16:18:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "536",
+        "aircraft" : {
+          "code" : "321"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT2H46M",
+        "id" : "1",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ATL",
+          "terminal" : "I",
+          "at" : "2020-03-22T00:50:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T04:45:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "27",
+        "aircraft" : {
+          "code" : "359"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT14H55M",
+        "id" : "2",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-23T17:40:00"
+        },
+        "arrival" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-23T23:55:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7872",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "3",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    }, {
+      "duration" : "PT48H15M",
+      "segments" : [ {
+        "departure" : {
+          "iataCode" : "DPS",
+          "terminal" : "I",
+          "at" : "2020-03-28T01:05:00"
+        },
+        "arrival" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T09:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "7873",
+        "aircraft" : {
+          "code" : "333"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT7H15M",
+        "id" : "10",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "ICN",
+          "terminal" : "2",
+          "at" : "2020-03-28T19:30:00"
+        },
+        "arrival" : {
+          "iataCode" : "JFK",
+          "terminal" : "1",
+          "at" : "2020-03-28T20:30:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "9014",
+        "aircraft" : {
+          "code" : "74H"
+        },
+        "operating" : {
+          "carrierCode" : "KE"
+        },
+        "duration" : "PT14H",
+        "id" : "11",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      }, {
+        "departure" : {
+          "iataCode" : "JFK",
+          "terminal" : "4",
+          "at" : "2020-03-29T09:00:00"
+        },
+        "arrival" : {
+          "iataCode" : "CUN",
+          "terminal" : "3",
+          "at" : "2020-03-29T12:20:00"
+        },
+        "carrierCode" : "DL",
+        "number" : "438",
+        "aircraft" : {
+          "code" : "739"
+        },
+        "operating" : {
+          "carrierCode" : "DL"
+        },
+        "duration" : "PT4H20M",
+        "id" : "12",
+        "numberOfStops" : 0,
+        "blacklistedInEU" : false
+      } ]
+    } ],
+    "price" : {
+      "currency" : "EUR",
+      "total" : "2843.82",
+      "base" : "2188.00",
+      "fees" : [ {
+        "amount" : "0.00",
+        "type" : "SUPPLIER"
+      }, {
+        "amount" : "0.00",
+        "type" : "TICKETING"
+      } ],
+      "grandTotal" : "2843.82"
+    },
+    "pricingOptions" : {
+      "fareType" : [ "PUBLISHED" ],
+      "includedCheckedBagsOnly" : true
+    },
+    "validatingAirlineCodes" : [ "DL" ],
+    "travelerPricings" : [ {
+      "travelerId" : "1",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1421.91",
+        "base" : "1094.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "BLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "B",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "BLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "B",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "BLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "B",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    }, {
+      "travelerId" : "2",
+      "fareOption" : "STANDARD",
+      "travelerType" : "ADULT",
+      "price" : {
+        "currency" : "EUR",
+        "total" : "1421.91",
+        "base" : "1094.00"
+      },
+      "fareDetailsBySegment" : [ {
+        "segmentId" : "1",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "BLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "B",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "2",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "BLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "B",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "3",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "BLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "B",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "10",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "11",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      }, {
+        "segmentId" : "12",
+        "cabin" : "ECONOMY",
+        "fareBasis" : "YLWA8RMQ",
+        "brandedFare" : "MAINCABIN",
+        "class" : "Y",
+        "includedCheckedBags" : {
+          "quantity" : 2
+        }
+      } ]
+    } ]
+  } ],
+  "dictionaries" : {
+    "locations" : {
+      "LAX" : {
+        "cityCode" : "LAX",
+        "countryCode" : "US"
+      },
+      "ICN" : {
+        "cityCode" : "SEL",
+        "countryCode" : "KR"
+      },
+      "DPS" : {
+        "cityCode" : "DPS",
+        "countryCode" : "ID"
+      },
+      "ATL" : {
+        "cityCode" : "ATL",
+        "countryCode" : "US"
+      },
+      "CUN" : {
+        "cityCode" : "CUN",
+        "countryCode" : "MX"
+      },
+      "JFK" : {
+        "cityCode" : "NYC",
+        "countryCode" : "US"
+      }
+    },
+    "aircraft" : {
+      "321" : "AIRBUS INDUSTRIE A321",
+      "388" : "AIRBUS INDUSTRIE A380-800",
+      "333" : "AIRBUS INDUSTRIE A330-300",
+      "359" : "AIRBUS INDUSTRIE A350-900",
+      "74H" : "BOEING 747-8I",
+      "739" : "BOEING 737-900"
+    },
+    "currencies" : {
+      "EUR" : "EURO"
+    },
+    "carriers" : {
+      "DL" : "DELTA AIR LINES",
+      "KE" : "KOREAN AIR"
+    }
+  }
+}
