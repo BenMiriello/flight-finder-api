@@ -1,0 +1,9 @@
+{
+  "meta" : {
+    "count" : 0,
+    "links" : {
+      "self" : "https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=UIO&destinationLocationCode=CDG&departureDate=2020-03-21&returnDate=2020-03-29&adults=2&nonStop=true&max=50"
+    }
+  },
+  "data" : [ ]
+}
