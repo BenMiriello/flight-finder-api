@@ -1,31 +1,49 @@
-# README
+# Flight Finder API
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### *Note: This is the Flight Finder back end repo. The front end repo can be found [here](https://github.com/BenMiriello/flight-finder).*
 
-Things you may want to cover:
+## Usage and Features
 
-* Ruby version
+Search for flights and view the cheapest offers and the latest price.
 
-* System dependencies
+* Customize search by selecting: one-way, non-stop only, preferred class, number of passengers.
+* Filter results by airline.
+* View results in condensed and expanded formats with detailed information for each leg of the flight.
+* Save and review flights in secure user account.
 
-* Configuration
+## Built With
+**Front End:** React, Redux, Thunk, Semantic UI React, [Cometari Airport Finder API](https://www.cometari.com/applications/airport-finder).
 
-* Database creation
+**[Back End](https://github.com/BenMiriello/flight-finder-api):** Rails, Bcrypt, JWT, Spawnling, Amadeus Travel API
 
-* Database initialization
+## Demo
 
-* How to run the test suite
+A video demo of Flight Finder is available on [YouTube](https://youtu.be/Px8IAOQFDKc).
 
-* Services (job queues, cache servers, search engines, etc.)
+![](demos/flight-finder-clip.gif)
 
-* Deployment instructions
+## Backend Installation Overview
 
-* ...
+* Open PostgreSQL.
+* Run the command: 
 
-----------------------------------------------------------------------
+```
+rails db:create && rails db:migrate && rails db:seed && rails s
+```
 
-If Rails can't connect with DB, has issues with env files, and is running spring,
-    try running: spring stop
+## Troubleshooting
 
-Kill server 3000 command: sudo kill -9 $(lsof -i :3000 -t)
+If Rails can't connect with DB, has issues with env files, and is running spring, try running: 
+
+```
+spring stop
+```
+
+If byebug is placed inside a Spawnling thread (in the queries_controller), server issues can arise. To fully reset the server, run:
+
+```
+sudo kill -9 $(lsof -i :3000 -t)
+```
+
+<br><br>
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
