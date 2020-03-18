@@ -12,9 +12,10 @@ Search for flights and view the cheapest offers and the latest price.
 * Save and review flights in secure user account.
 
 ## Built With
-**Front End:** React, Redux, Thunk, Semantic UI React, [Cometari Airport Finder API](https://www.cometari.com/applications/airport-finder).
 
-**[Back End](https://github.com/BenMiriello/flight-finder-api):** Rails, Bcrypt, JWT, Spawnling, Amadeus Travel API
+**Back End** Rails, Bcrypt, JWT, Spawnling, Amadeus Travel API
+
+**[Front End:](https://github.com/BenMiriello/flight-finder):** React, Redux, Thunk, Semantic UI React, [Cometari Airport Finder API](https://www.cometari.com/applications/airport-finder).
 
 ## Demo
 

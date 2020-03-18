@@ -18,7 +18,7 @@ class Api::V1::QueriesController < ApplicationController
         # Query object stores search info. Referenced when user makes the same search again.
         query_obj = Query.create(searchParams.permit(:originLocationCode, :destinationLocationCode, :departureDate, :returnDate, :travelClass, :adults, :children, :infants, :nonStop, :maxPrice, :origin_id, :destination_id, :user_id))
         
-            # # may need to make new models to track excluded and included airline selections from search
+            # # May need to make new models to track excluded and included airline selections from search
             # searchParams[:excludedAirlines].each do |airline_iata_code|
             #     airline = Airline.find_by :iata_code => airline_iata_code.upcase
             #     if airline
@@ -29,7 +29,7 @@ class Api::V1::QueriesController < ApplicationController
         ## EXPLANATION
         # Response object stores response information, and all FlightOffers (FOs) belong to one.
         # Front end can GET the response and all FOs that have been created so far before this controller method is done running.
-        # This means the front end can start serving the user FOs in +- 2 seconds instead of 10-30 seconds.
+        # This means the front end can start serving the user FOs in +- 5 seconds instead of 30-60 seconds.
         # The response is :resolved => false until all FOs have been created.
 
         require 'amadeus'
@@ -43,6 +43,9 @@ class Api::V1::QueriesController < ApplicationController
         keys = Dotenv.load('.env')
         
         # Amadeus API keys are needed here:
+        # Store in .env, format:
+        #   AMADEUS_CLIENT_ID=12345...
+        #   AMADEUS_CLIENT_SECRET=67890...
         client = OAuth2::Client.new(
             keys["AMADEUS_CLIENT_ID"], 
             keys["AMADEUS_CLIENT_SECRET"], 
@@ -50,17 +53,17 @@ class Api::V1::QueriesController < ApplicationController
             token_url: 'https://test.api.amadeus.com/v1/security/oauth2/token'
         )
         
-        # Token works for 30 minutes.
+        # New token is generated each request. Token is valid for 30 minutes.
         token = client.client_credentials.get_token.token
         # token = 'j2lwAneaiYMRAlcAMvpvPt9XbE5p'
 
-        # Request is sent to Amadues API here.
         def get_response(url, token)
             RestClient::Request.execute(:method => :get, :url => url, :headers => {:Authorization => "Bearer #{token}"})
         rescue => e
             e
         end
         
+        # Request is sent to Amadues API here:
         raw_response = get_response(url, token)
 
         # if raw_response[0...3] != 200
