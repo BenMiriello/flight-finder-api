@@ -28,7 +28,7 @@ class Url
         # end
 
         # if query[:limit]
-        # url += "&max=5"
+        url += "&max=50"
         # end
         
         return url
