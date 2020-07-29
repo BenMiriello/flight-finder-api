@@ -1,31 +1,30 @@
 class ParseResponse 
     
-    def self.map_response_to_models(response_obj, datum, dictionaries)
+    def self.map_response_to_models(response_obj, data, dictionaries)
         segments_array = []
-        # byebug
 
         # create FlightOffer
         flight_offer_object = FlightOffer.create(
             response_id: response_obj.id,
-            gds: datum["source"],
-            instant_ticketing_required: datum["instantTicketingRequired"],
-            non_homogenous: datum["nonHomogeneous"],
-            one_way: datum["oneWay"],
-            last_ticketing_date: datum["lastTicketingDate"],
-            number_of_bookable_seats: datum["numberOfBookableSeats"],
-            currency_code: datum["price"]["currency"], # currency_code
-            currency: dictionaries["currencies"][datum["price"]["currency"]], # currency
-            price_total: datum["price"]["total"].to_i,
-            price_base: datum["price"]["base"].to_i,
-            price_fees: datum["price"]["fees"].join(','), # extra info - save as string
-            grand_total: datum["price"]["grandTotal"].to_i,
-            fare_type: datum["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
-            included_checked_bags_only: datum["pricingOptions"]["includedCheckedBagsOnly"],
-            validating_airline_codes: datum["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
+            gds: data["source"],
+            instant_ticketing_required: data["instantTicketingRequired"],
+            non_homogenous: data["nonHomogeneous"],
+            one_way: data["oneWay"],
+            last_ticketing_date: data["lastTicketingDate"],
+            number_of_bookable_seats: data["numberOfBookableSeats"],
+            currency_code: data["price"]["currency"], # currency_code
+            currency: dictionaries["currencies"][data["price"]["currency"]], # currency
+            price_total: data["price"]["total"].to_i,
+            price_base: data["price"]["base"].to_i,
+            price_fees: data["price"]["fees"].join(','), # extra info - save as string
+            grand_total: data["price"]["grandTotal"].to_i,
+            fare_type: data["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
+            included_checked_bags_only: data["pricingOptions"]["includedCheckedBagsOnly"],
+            validating_airline_codes: data["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
         )
-        
+
         # create Itineraries
-        datum["itineraries"].each do |itinerary| itinerary_object = Itinerary.create(
+        data["itineraries"].each do |itinerary| itinerary_object = Itinerary.create(
                 flight_offer_id: flight_offer_object.id,
                 duration: itinerary["duration"]
             )
@@ -73,7 +72,7 @@ class ParseResponse
         end
         
         # create travelers
-        datum["travelerPricings"].each do |traveler|
+        data["travelerPricings"].each do |traveler|
             traveler_object = Traveler.create(
                 flight_offer_id: flight_offer_object.id,
                 fare_option: traveler["fareOption"],
@@ -106,31 +105,31 @@ class ParseResponse
         return flight_offer_object
     end
 
-    def self.original_map_response_to_models(response_obj, datum, dictionaries)
+    def self.original_map_response_to_models(response_obj, data, dictionaries)
         segments_array = []
 
         # create FlightOffer
         flight_offer_object = FlightOffer.create(
             response_id: response_obj.id,
-            gds: datum["source"],
-            instant_ticketing_required: datum["instantTicketingRequired"],
-            non_homogenous: datum["nonHomogeneous"],
-            one_way: datum["oneWay"],
-            last_ticketing_date: datum["lastTicketingDate"],
-            number_of_bookable_seats: datum["numberOfBookableSeats"],
-            currency_code: datum["price"]["currency"], # currency_code
-            currency: dictionaries["currencies"][datum["price"]["currency"]], # currency
-            price_total: datum["price"]["total"].to_i,
-            price_base: datum["price"]["base"].to_i,
-            price_fees: datum["price"]["fees"].join(','), # extra info - save as string
-            grand_total: datum["price"]["grandTotal"].to_i,
-            fare_type: datum["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
-            included_checked_bags_only: datum["pricingOptions"]["includedCheckedBagsOnly"],
-            validating_airline_codes: datum["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
+            gds: data["source"],
+            instant_ticketing_required: data["instantTicketingRequired"],
+            non_homogenous: data["nonHomogeneous"],
+            one_way: data["oneWay"],
+            last_ticketing_date: data["lastTicketingDate"],
+            number_of_bookable_seats: data["numberOfBookableSeats"],
+            currency_code: data["price"]["currency"], # currency_code
+            currency: dictionaries["currencies"][data["price"]["currency"]], # currency
+            price_total: data["price"]["total"].to_i,
+            price_base: data["price"]["base"].to_i,
+            price_fees: data["price"]["fees"].join(','), # extra info - save as string
+            grand_total: data["price"]["grandTotal"].to_i,
+            fare_type: data["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
+            included_checked_bags_only: data["pricingOptions"]["includedCheckedBagsOnly"],
+            validating_airline_codes: data["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
         )
         
         # create Itineraries
-        datum["itineraries"].each do |itinerary| itinerary_object = Itinerary.create(
+        data["itineraries"].each do |itinerary| itinerary_object = Itinerary.create(
                 flight_offer_id: flight_offer_object.id,
                 duration: itinerary["duration"]
             )
@@ -174,7 +173,7 @@ class ParseResponse
         end
         
         # create travelers
-        datum["travelerPricings"].each do |traveler|
+        data["travelerPricings"].each do |traveler|
             traveler_object = Traveler.create(
                 flight_offer_id: flight_offer_object.id,
                 fare_option: traveler["fareOption"],
