@@ -274,6 +274,19 @@ class ParseResponse
                 segments_array << segment
             end
         end
+
+        # create travelers
+        data["travelerPricings"].each do |traveler|
+            traveler_object = {
+                flight_offer_id: flight_offer_object.id,
+                fare_option: traveler["fareOption"],
+                traveler_type: traveler["travelerType"],
+                currency_code: traveler["price"]["currency"],
+                currency: dictionaries["currencies"][traveler["price"]["currency"]],
+                total: traveler["price"]["total"].to_i,
+                base: traveler["price"]["base"]
+            }
+        end
     end
 
 end
