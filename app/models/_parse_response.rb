@@ -228,6 +228,17 @@ class ParseResponse
             included_checked_bags_only: data["pricingOptions"]["includedCheckedBagsOnly"],
             validating_airline_codes: data["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
         }
+
+        # create Itineraries
+        let itenerary_id = 1
+        data["itineraries"].each do |itinerary| 
+            itinerary_object = {
+                flight_offer_id: flight_offer_object.id,
+                duration: itinerary["duration"],
+                id: itinerary_id
+            }
+            itinerary_id++
+        end
     end
 
 end
