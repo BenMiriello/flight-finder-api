@@ -82,7 +82,7 @@ class ParseResponse
                 total: traveler["price"]["total"].to_i,
                 base: traveler["price"]["base"]
             )
-            
+
             # create traveler_segments
             traveler["fareDetailsBySegment"].each do |fare_details|
                 if fare_details["includedCheckedBags"] && fare_details["includedCheckedBags"]["quantity"]
@@ -286,8 +286,26 @@ class ParseResponse
                 total: traveler["price"]["total"].to_i,
                 base: traveler["price"]["base"]
             }
+
+            # create traveler_segments
+            traveler["fareDetailsBySegment"].each do |fare_details|
+                if fare_details["includedCheckedBags"] && fare_details["includedCheckedBags"]["quantity"]
+                    included_checked_bags_quantity = fare_details["includedCheckedBags"]["quantity"]
+                else
+                    included_checked_bags_quantity = 0
+                end
+                traveler_segment = {
+                    traveler_id: traveler_object.id,
+                    segment_id: segments_array.find{ |segment| segment.xid == fare_details["segmentId"].to_i }.id,
+                    cabin: fare_details["cabin"],
+                    fare_basis: fare_details["fareBasis"],
+                    branded_fare: fare_details["brandedFare"],
+                    rbd_class: fare_details["class"], # class_RBD
+                    included_checked_bags_quantity: included_checked_bags_quantity
+                }
+            end
         end
     end
 
+    return flight_offer_object
 end
-
