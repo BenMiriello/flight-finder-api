@@ -206,5 +206,29 @@ class ParseResponse
         return flight_offer_object
     end
 
+    def self.map_response_to_object(response_obj, data, dictionaries)
+        segments_array = []
+
+        # create FlightOffer
+        flight_offer_object = {
+            response_id: response_obj.id,
+            gds: data["source"],
+            instant_ticketing_required: data["instantTicketingRequired"],
+            non_homogenous: data["nonHomogeneous"],
+            one_way: data["oneWay"],
+            last_ticketing_date: data["lastTicketingDate"],
+            number_of_bookable_seats: data["numberOfBookableSeats"],
+            currency_code: data["price"]["currency"], # currency_code
+            currency: dictionaries["currencies"][data["price"]["currency"]], # currency
+            price_total: data["price"]["total"].to_i,
+            price_base: data["price"]["base"].to_i,
+            price_fees: data["price"]["fees"].join(','), # extra info - save as string
+            grand_total: data["price"]["grandTotal"].to_i,
+            fare_type: data["pricingOptions"]["fareType"].join(","), # an array. there's just one in the example
+            included_checked_bags_only: data["pricingOptions"]["includedCheckedBagsOnly"],
+            validating_airline_codes: data["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
+        }
+    end
+
 end
 
