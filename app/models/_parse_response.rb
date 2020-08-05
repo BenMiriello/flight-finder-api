@@ -137,7 +137,6 @@ class ParseResponse
             # create Segments
             itinerary["segments"].each do |segment|
 
-                # byebug
                 airline = Airline.find_or_create_by :iata_code => segment["carrierCode"], :name => dictionaries["carriers"][segment["carrierCode"]]
                 operating_airline = Airline.find_or_create_by :iata_code => segment["operating"]["carrierCode"], :name => dictionaries["carriers"][segment["operating"]["carrierCode"]]
                 
@@ -209,7 +208,7 @@ class ParseResponse
     def self.map_response_to_object(response_obj, data, dictionaries)
         segments_array = []
 
-        # create FlightOffer
+        # create flight_offer
         flight_offer_object = {
             response_id: response_obj.id,
             gds: data["source"],
@@ -229,15 +228,51 @@ class ParseResponse
             validating_airline_codes: data["validatingAirlineCodes"].join(",") # just do first one. when reading can call ".split(",")" which will only split if there are multiple, or just get first 2 chars.
         }
 
-        # create Itineraries
-        let itenerary_id = 1
-        data["itineraries"].each do |itinerary| 
-            itinerary_object = {
+        # create itineraries
+        let itinerary_id_counter = 1
+        data["itineraries"].each do |data_itinerary| 
+            itinerary= {
                 flight_offer_id: flight_offer_object.id,
-                duration: itinerary["duration"],
-                id: itinerary_id
+                duration: data_itinerary["duration"],
+                id: itinerary_id_counter
             }
-            itinerary_id++
+            itinerary_id_counter++
+
+            # create segments
+            itinerary["segments"].each do |segment|
+                airline = Airline.find_or_create_by(
+                    :iata_code => segment["carrierCode"],
+                    :name => dictionaries["carriers"][segment["carrierCode"]]
+                )
+
+                operating_airline = Airline.find_or_create_by(
+                    :iata_code => segment["operating"]["carrierCode"],
+                    :name => dictionaries["carriers"][segment["operating"]["carrierCode"]]
+                )
+
+                origin = Airport.find_by :iata_code => segment["departure"]["iataCode"]
+                destination = Airport.find_by :iata_code => segment["arrival"]["iataCode"]
+
+                segment = {
+                    airline_id: airline.id,
+                    operating_airline_id: operating_airline.id,
+                    origin_id: origin.id,
+                    destination_id: destination.id,
+                    departure_terminal: segment["departure"]["terminal"],
+                    departure_time: segment["departure"]["at"],
+                    arrival_terminal: segment["arrival"]["terminal"],
+                    arrival_time: segment["arrival"]["at"],
+                    flight_number: segment["number"],
+                    aircraft_code: segment["aircraft"]["code"],
+                    aircraft: dictionaries["aircraft"][segment["aircraft"]["code"]],
+                    duration: segment["duration"],
+                    xid: segment["id"].to_i,
+                    number_of_stops: segment["numberOfStops"],
+                    blacklisted_in_eu: segment["blacklistedInEU"],
+                    itinerary_id: itinerary_object["id"]
+                }
+                segments_array << segment
+            end
         end
     end
 
